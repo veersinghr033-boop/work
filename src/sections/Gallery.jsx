@@ -73,13 +73,25 @@ const galleryImages = [
 function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const filteredImages = useMemo(() => {
     return activeCategory === "All"
       ? galleryImages
       : galleryImages.filter((item) => item.category === activeCategory);
   }, [activeCategory]);
+
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedIndex]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -97,26 +109,26 @@ function Gallery() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, filteredImages]);
 
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.touches[0].clientX);
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const handleTouchEnd = (e) => {
-    if (touchStartX === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
-    // Minimum swipe threshold 40px
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        // Swiped left -> next
-        setSelectedIndex((prev) => (prev + 1) % filteredImages.length);
-      } else {
-        // Swiped right -> prev
-        setSelectedIndex((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
-      }
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 45;
+    if (distance > minSwipeDistance) {
+      // Swiped left -> next
+      setSelectedIndex((prev) => (prev + 1) % filteredImages.length);
+    } else if (distance < -minSwipeDistance) {
+      // Swiped right -> prev
+      setSelectedIndex((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
     }
-    setTouchStartX(null);
   };
 
   const activeImage = selectedIndex !== null ? filteredImages[selectedIndex] : null;
@@ -127,29 +139,31 @@ function Gallery() {
   };
 
   return (
-    <section id="gallery" className="relative bg-slate-50 py-24 sm:py-28 lg:py-32 border-t border-zinc-200">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="gallery" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
               <span>📸 Visual Showcase</span>
             </div>
-            <h2 className="text-3xl font-black text-zinc-950 sm:text-5xl lg:text-6xl">
+            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
               Fabrication <br />
-              <span className="text-orange-600">Design Gallery.</span>
+              <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
+                Design Gallery.
+              </span>
             </h2>
           </div>
 
-          <p className="text-sm leading-relaxed text-zinc-600 sm:text-base lg:ml-auto lg:max-w-xl">
+          <p className="text-sm leading-relaxed text-slate-600 sm:text-base lg:ml-auto lg:max-w-xl">
             A high-definition visual record of recent stainless steel architectural installs. Click on any
             design to view in full resolution or request a direct quotation.
           </p>
         </div>
 
         {/* Filters */}
-        <div className="mt-12 flex gap-2 overflow-x-auto pb-2">
+        <div className="mt-10 sm:mt-12 flex gap-2 overflow-x-auto pb-2 sm:pb-3 no-scrollbar">
           {categories.map((category) => {
             const active = activeCategory === category;
             return (
@@ -159,10 +173,10 @@ function Gallery() {
                   setActiveCategory(category);
                   setSelectedIndex(null);
                 }}
-                className={`rounded-xl border px-4 py-2 text-xs font-bold transition whitespace-nowrap shadow-sm ${
+                className={`rounded-xl border px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold transition whitespace-nowrap shadow-sm ${
                   active
-                    ? "border-orange-500 bg-orange-500 text-white shadow-orange-500/20"
-                    : "border-zinc-200 bg-white text-zinc-700 hover:border-orange-300 hover:text-orange-600"
+                    ? "border-orange-500 bg-orange-600 text-white shadow-orange-500/20"
+                    : "border-slate-200/90 bg-white text-slate-700 hover:border-orange-300 hover:text-orange-600"
                 }`}
               >
                 {category}
@@ -177,38 +191,39 @@ function Gallery() {
             <div
               key={item.id}
               onClick={() => setSelectedIndex(index)}
-              className={`group relative cursor-pointer overflow-hidden rounded-3xl bg-zinc-100 border border-zinc-200 shadow-sm transition hover:shadow-xl hover:border-orange-300 ${
+              className={`group relative cursor-pointer overflow-hidden rounded-3xl bg-slate-100 border border-slate-200/90 shadow-sm transition hover:shadow-xl hover:border-orange-400 ${
                 item.size === "large" ? "sm:col-span-2 lg:col-span-2" : ""
               }`}
             >
-              <div className={item.size === "large" ? "h-[380px]" : "h-[290px]"}>
+              <div className={item.size === "large" ? "h-[320px] sm:h-[380px]" : "h-[260px] sm:h-[290px]"}>
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-108"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
 
               {/* Gradient Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-80 transition duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-85 transition duration-300 group-hover:opacity-100" />
 
               {/* Hover Badge */}
-              <span className="absolute top-4 left-4 rounded-lg bg-white/90 border border-zinc-200 px-2.5 py-1 text-[10px] font-bold text-orange-700 uppercase backdrop-blur-md shadow-sm">
+              <span className="absolute top-4 left-4 rounded-full bg-slate-900/85 border border-white/20 px-3 py-1 text-[10px] font-bold text-orange-400 uppercase backdrop-blur-md shadow-sm">
                 {item.category}
               </span>
 
               {/* Content Dock */}
-              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
                 <div>
                   <span className="text-[10px] font-semibold text-orange-300 uppercase tracking-widest">
                     {item.tag}
                   </span>
-                  <h3 className="text-base font-bold text-white group-hover:text-orange-300 transition">
+                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-orange-300 transition">
                     {item.title}
                   </h3>
                 </div>
 
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/30 text-white backdrop-blur transition duration-300 group-hover:bg-orange-500 group-hover:scale-110">
+                <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur transition duration-300 group-hover:bg-orange-600 group-hover:scale-110">
                   🔍
                 </span>
               </div>
@@ -218,23 +233,24 @@ function Gallery() {
 
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal with Mobile Touch Swipe */}
       {activeImage && (
         <div
-          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/90 p-3 sm:p-4 backdrop-blur-md"
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/90 p-3 sm:p-5 backdrop-blur-md select-none"
           onClick={() => setSelectedIndex(null)}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           {/* Top Bar with Counter and Close */}
-          <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between text-white z-10">
-            <span className="text-xs font-mono font-bold text-zinc-300 bg-white/10 px-3 py-1 rounded-full">
+          <div className="absolute top-4 left-4 right-4 sm:top-5 sm:left-6 sm:right-6 flex items-center justify-between text-white z-20">
+            <span className="text-xs font-mono font-bold text-slate-200 bg-white/15 px-3 py-1 rounded-full border border-white/10 backdrop-blur-md">
               {selectedIndex + 1} of {filteredImages.length}
             </span>
 
             <button
               onClick={() => setSelectedIndex(null)}
-              className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-orange-500 transition"
+              className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/15 text-white hover:bg-orange-600 transition border border-white/10 backdrop-blur-md"
               aria-label="Close Lightbox"
             >
               ✕
@@ -247,7 +263,7 @@ function Gallery() {
               e.stopPropagation();
               setSelectedIndex((selectedIndex - 1 + filteredImages.length) % filteredImages.length);
             }}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/10 text-white border border-white/20 hover:bg-orange-500 transition z-10 active:scale-95"
+            className="absolute left-2 sm:left-5 top-1/2 -translate-y-1/2 flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/40 text-white border border-white/20 hover:bg-orange-600 transition z-20 backdrop-blur-sm"
             aria-label="Previous Image"
           >
             ←
@@ -259,7 +275,7 @@ function Gallery() {
               e.stopPropagation();
               setSelectedIndex((selectedIndex + 1) % filteredImages.length);
             }}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/10 text-white border border-white/20 hover:bg-orange-500 transition z-10 active:scale-95"
+            className="absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/40 text-white border border-white/20 hover:bg-orange-600 transition z-20 backdrop-blur-sm"
             aria-label="Next Image"
           >
             →
@@ -267,26 +283,26 @@ function Gallery() {
 
           {/* Main Lightbox Body */}
           <div
-            className="relative max-h-[85vh] max-w-5xl flex flex-col items-center w-full px-2 sm:px-0"
+            className="relative max-h-[90vh] max-w-4xl flex flex-col items-center w-full px-2"
             onClick={(e) => e.stopPropagation()}
           >
             <img
               src={activeImage.image}
               alt={activeImage.title}
-              className="max-h-[60vh] sm:max-h-[70vh] max-w-full rounded-2xl object-contain shadow-2xl border border-white/10"
+              className="max-h-[50vh] sm:max-h-[64vh] lg:max-h-[70vh] max-w-full rounded-2xl object-contain shadow-2xl border border-white/10"
             />
 
-            <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-between w-full gap-3 sm:gap-4 rounded-2xl bg-zinc-900/95 p-3.5 sm:p-4 border border-white/15 backdrop-blur-md">
-              <div className="text-center sm:text-left">
+            <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-3 sm:gap-4 rounded-2xl bg-slate-950/95 p-3.5 sm:p-4 border border-white/15 backdrop-blur-md">
+              <div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-orange-400">
                   {activeImage.category} • {activeImage.tag}
                 </span>
-                <h3 className="text-base sm:text-lg font-bold text-white">{activeImage.title}</h3>
+                <h3 className="text-sm sm:text-base font-bold text-white">{activeImage.title}</h3>
               </div>
 
               <button
                 onClick={() => handleInquireWhatsApp(activeImage)}
-                className="w-full sm:w-auto rounded-xl bg-[#25D366] px-5 py-2.5 text-xs font-bold text-white shadow-lg transition hover:bg-[#20ba59] active:scale-95 text-center"
+                className="w-full sm:w-auto rounded-xl bg-[#25D366] px-4 py-2 sm:px-5 sm:py-2.5 text-xs font-bold text-white shadow-lg transition hover:bg-[#20ba59] active:scale-[0.98] text-center"
               >
                 Inquire on WhatsApp
               </button>

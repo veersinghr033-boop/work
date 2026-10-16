@@ -4,7 +4,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-slate-50 pt-28 pb-16 lg:pt-36 lg:pb-24"
+      className="relative min-h-[92vh] sm:min-h-screen overflow-hidden bg-slate-50 pt-24 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 flex items-center"
     >
       {/* Background Architectural Steel Image */}
       <div
@@ -14,182 +14,184 @@ function Hero() {
         }}
       />
 
-      {/* Light Frosted Layer Overlays */}
-      <div className="absolute inset-0 bg-white/85 backdrop-blur-[1px]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30" />
+      {/* Multi-tier Light Overlays for Visual Clarity */}
+      <div className="absolute inset-0 bg-white/88 backdrop-blur-[1.5px]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-white/40" />
 
       {/* Subtle Warm Amber Glows */}
-      <div className="absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-orange-200/40 blur-3xl pointer-events-none" />
+      <div className="absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-orange-200/35 blur-3xl pointer-events-none" />
       <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-amber-200/30 blur-3xl pointer-events-none" />
 
-      {/* Main Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+      {/* Main Content Container */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           
           {/* Left Column: Headline & Action CTAs */}
           <div className="lg:col-span-7 xl:col-span-8">
             
             {/* Trust Pill */}
-            <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-orange-200 bg-orange-50 px-4 py-1.5 shadow-sm">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50/90 px-3.5 py-1.5 shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-orange-500 animate-ping" />
-              <span className="text-xs font-bold uppercase tracking-wider text-orange-700">
-                Premium SS 304 & SS 316 Fabrication • Est. 2004 in Rajasthan
+              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-800">
+                SS 304 & 316 Fabrication • Est. 2004 in Rajasthan
               </span>
             </div>
 
-            {/* Main Title */}
-            <h1 className="text-4xl font-black tracking-tight text-zinc-950 sm:text-6xl md:text-7xl xl:text-[76px] xl:leading-[1.08]">
+            {/* Main Title - Mobile Optimized */}
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-tight text-slate-900 leading-[1.12]">
               Strength You See.{" "}
-              <span className="block bg-gradient-to-r from-orange-600 via-orange-500 to-amber-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Precision You Trust.
               </span>
             </h1>
 
             {/* Subheading */}
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-              Transforming spaces with bespoke architectural stainless steel railings,
-              frameless glass balustrades, designer entrance gates, and precision industrial engineering.
-              Engineered for lifetime durability and rust-free elegance.
+            <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-slate-600">
+              Transforming spaces with bespoke stainless steel railings, frameless glass balustrades,
+              designer entrance gates, and precision industrial engineering. Built for lifetime durability and rust-free elegance.
             </p>
 
             {/* Checkmark Quality Highlights */}
-            <div className="mt-6 flex flex-wrap gap-y-2 gap-x-6 text-xs sm:text-sm text-zinc-700 font-semibold">
-              <div className="flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+            <div className="mt-5 sm:mt-6 flex flex-wrap gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-700 font-semibold">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs">
                   ✓
                 </span>
-                <span>Genuine SS 304 / 316 Grade Testing</span>
+                <span>Genuine SS 304 / 316 Testing</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs">
                   ✓
                 </span>
                 <span>Argon TIG Seamless Welds</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs">
                   ✓
                 </span>
                 <span>Turnkey On-Site Fitment</span>
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+            {/* CTAs - Mobile Optimized 2-tier layout */}
+            <div className="mt-7 sm:mt-9 flex flex-col gap-2.5 sm:flex-row sm:items-center">
               <a
                 href="#calculator"
-                className="group flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-orange-500/25 transition-all duration-300 hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98]"
+                className="group flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3.5 sm:py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:from-orange-600 hover:to-orange-700 active:scale-[0.98]"
               >
-                <svg className="h-5 w-5 text-orange-100 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-4.5 w-4.5 text-orange-100 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <span>Calculate Cost Instantly</span>
-                <span className="rounded bg-white/25 px-2 py-0.5 text-[10px] font-extrabold uppercase text-white">Free</span>
+                <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px] font-black uppercase text-white">Free</span>
               </a>
 
-              <a
-                href="#products"
-                className="flex items-center justify-center gap-2.5 rounded-xl border border-zinc-300 bg-white px-6 py-4 text-sm font-bold text-zinc-800 shadow-sm transition-all duration-300 hover:border-orange-500 hover:text-orange-600"
-              >
-                <span>Explore Products</span>
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+              <div className="grid grid-cols-2 gap-2.5 w-full sm:w-auto sm:flex sm:items-center">
+                <a
+                  href="#products"
+                  className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-2xl border border-slate-300 bg-white px-3.5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-800 shadow-sm transition-all duration-300 hover:border-orange-500 hover:text-orange-600 active:scale-[0.98]"
+                >
+                  <span>Products</span>
+                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
 
-              <a
-                href="https://wa.me/919468815735"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl border border-green-300 bg-green-50 px-5 py-4 text-sm font-bold text-green-700 transition hover:bg-green-100 shadow-sm"
-              >
-                <span>WhatsApp Expert</span>
-              </a>
+                <a
+                  href="https://wa.me/919468815735"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-2xl border border-emerald-300 bg-emerald-50 px-3.5 sm:px-5 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-emerald-800 transition hover:bg-emerald-100 shadow-sm active:scale-[0.98]"
+                >
+                  <span>WhatsApp</span>
+                  <span className="text-xs">💬</span>
+                </a>
+              </div>
             </div>
 
-            {/* Performance Metric Counters */}
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-zinc-200 pt-8">
-              <div className="rounded-2xl border border-zinc-200/90 bg-white/95 p-4 shadow-sm">
-                <p className="text-3xl font-black text-zinc-950 sm:text-4xl">20+</p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-orange-600">Years Experience</p>
-                <p className="text-[11px] text-zinc-500 mt-0.5">Est. 2004 in Jodhpur</p>
+            {/* Performance Metric Counters - 2-cols on mobile */}
+            <div className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 border-t border-slate-200 pt-6 sm:pt-8">
+              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">20+</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600">Years Experience</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Est. 2004 in Jodhpur</p>
               </div>
 
-              <div className="rounded-2xl border border-zinc-200/90 bg-white/95 p-4 shadow-sm">
-                <p className="text-3xl font-black text-orange-600 sm:text-4xl">500+</p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-zinc-700">Projects Delivered</p>
-                <p className="text-[11px] text-zinc-500 mt-0.5">Villas, Offices & Plants</p>
+              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">500+</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">Projects Delivered</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Villas & Complexes</p>
               </div>
 
-              <div className="rounded-2xl border border-zinc-200/90 bg-white/95 p-4 shadow-sm">
-                <p className="text-3xl font-black text-zinc-950 sm:text-4xl">100%</p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-orange-600">Quality Tested</p>
-                <p className="text-[11px] text-zinc-500 mt-0.5">Certified 304/316 Steel</p>
+              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">100%</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600">Quality Tested</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Certified 304/316</p>
               </div>
 
-              <div className="rounded-2xl border border-zinc-200/90 bg-white/95 p-4 shadow-sm">
-                <p className="text-3xl font-black text-orange-600 sm:text-4xl">4.9★</p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-zinc-700">Client Rating</p>
-                <p className="text-[11px] text-zinc-500 mt-0.5">Trusted By Contractors</p>
+              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">4.9★</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">Client Rating</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Verified Reviews</p>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Architectural Quality Snapshot Card */}
+          {/* Right Column: Architectural Quality Snapshot Card (Hidden on small mobile, visible on lg) */}
           <div className="hidden lg:col-span-5 xl:col-span-4 lg:block">
-            <div className="relative rounded-3xl border border-zinc-200 bg-white/95 p-6 shadow-xl backdrop-blur-md">
+            <div className="relative rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-xl backdrop-blur-md">
               
-              <div className="flex items-center justify-between pb-4 border-b border-zinc-100">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 rounded-full bg-red-400" />
                   <div className="h-3 w-3 rounded-full bg-amber-400" />
                   <div className="h-3 w-3 rounded-full bg-green-400" />
                 </div>
-                <span className="text-xs font-bold text-zinc-500">Fabrication Standards</span>
+                <span className="text-xs font-bold text-slate-500">Fabrication Standards</span>
               </div>
 
               <div className="mt-5 space-y-3.5">
-                <div className="rounded-2xl border border-zinc-100 bg-zinc-50/70 p-4 transition hover:border-orange-300">
+                <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition hover:border-orange-300">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-wider text-orange-700">Top Specialty</span>
-                    <span className="rounded bg-orange-100 px-2 py-0.5 text-[10px] font-bold text-orange-800">Bestseller</span>
+                    <span className="rounded-md bg-orange-100 px-2 py-0.5 text-[10px] font-bold text-orange-800">Bestseller</span>
                   </div>
-                  <h4 className="mt-1 text-sm font-bold text-zinc-900">SS Glass & Balcony Railings</h4>
-                  <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
+                  <h4 className="mt-1 text-sm font-bold text-slate-900">SS Glass & Balcony Railings</h4>
+                  <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                     12mm Toughened Glass with SS 304 solid spigots & ergonomic handrail.
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-zinc-100 bg-zinc-50/70 p-4 transition hover:border-amber-300">
+                <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition hover:border-amber-300">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-wider text-amber-700">Security & Luxury</span>
-                    <span className="rounded bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-800">Heavy Duty</span>
+                    <span className="rounded-md bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-800">Heavy Duty</span>
                   </div>
-                  <h4 className="mt-1 text-sm font-bold text-zinc-900">Custom Laser-Cut Gates</h4>
-                  <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
+                  <h4 className="mt-1 text-sm font-bold text-slate-900">Custom Laser-Cut Gates</h4>
+                  <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                     CNC laser lattice motifs, anti-sag structure, automation ready.
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-zinc-100 bg-zinc-50/70 p-4 transition hover:border-emerald-300">
+                <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4 transition hover:border-emerald-300">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Service Guarantee</span>
-                    <span className="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">Free Visit</span>
+                    <span className="rounded-md bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">Free Visit</span>
                   </div>
-                  <h4 className="mt-1 text-sm font-bold text-zinc-900">Free Site Measurement</h4>
-                  <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
+                  <h4 className="mt-1 text-sm font-bold text-slate-900">Free Site Measurement</h4>
+                  <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                     On-site laser inspection, physical samples & 3D layout recommendations.
                   </p>
                 </div>
               </div>
 
               {/* Card Footer WhatsApp link */}
-              <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-zinc-500">Got blueprints or photos?</p>
-                  <p className="text-xs font-bold text-zinc-900">Get an instant feasibility quote</p>
+                  <p className="text-xs text-slate-500">Got blueprints or photos?</p>
+                  <p className="text-xs font-bold text-slate-900">Instant engineering quote</p>
                 </div>
                 <a
                   href="https://wa.me/919468815735"

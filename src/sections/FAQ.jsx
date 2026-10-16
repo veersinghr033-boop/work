@@ -81,19 +81,19 @@ function FAQ() {
   }, [activeCategory, search]);
 
   return (
-    <section id="faq" className="relative bg-slate-50 py-24 sm:py-28 lg:py-32 border-t border-zinc-200">
+    <section id="faq" className="relative bg-slate-50 py-24 sm:py-28 lg:py-32 border-t border-slate-200/80">
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
         
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50 px-4 py-1 text-xs font-bold uppercase tracking-wider text-orange-700 shadow-sm">
             <span>❓ Frequently Asked Questions</span>
           </div>
-          <h2 className="text-3xl font-black text-zinc-950 sm:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-black text-slate-900 sm:text-5xl lg:text-6xl tracking-tight">
             Have Questions? <br />
-            <span className="text-orange-600">We've Got Transparent Answers.</span>
+            <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">We've Got Transparent Answers.</span>
           </h2>
-          <p className="mt-4 text-sm text-zinc-600 sm:text-base">
+          <p className="mt-4 text-sm text-slate-600 sm:text-base leading-relaxed">
             Everything you need to know about stainless steel grades, pricing, laser site measurement, and warranty.
           </p>
 
@@ -104,10 +104,10 @@ function FAQ() {
               placeholder="Search answers (e.g. rust, price, warranty, 304)..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 pl-10 text-xs text-zinc-900 placeholder-zinc-400 outline-none focus:border-orange-500 shadow-sm"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 pl-10 text-sm sm:text-xs text-slate-900 placeholder-slate-400 outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 shadow-sm"
             />
             <svg
-              className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-400"
+              className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -117,23 +117,23 @@ function FAQ() {
             {search && (
               <button
                 onClick={() => setSearch("")}
-                className="absolute right-3.5 top-3 text-xs text-zinc-400 hover:text-zinc-700"
+                className="absolute right-3.5 top-3 text-xs text-slate-400 hover:text-slate-700"
               >
                 ×
               </button>
             )}
           </div>
 
-          {/* Category Chips */}
-          <div className="mt-4 flex flex-wrap justify-center gap-2">
+          {/* Category Chips with mobile horizontal scroll */}
+          <div className="mt-5 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-1 px-1">
             {categories.map((c) => (
               <button
                 key={c}
                 onClick={() => setActiveCategory(c)}
-                className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition shadow-sm ${
+                className={`shrink-0 rounded-xl px-3.5 py-1.5 text-xs font-bold transition shadow-sm ${
                   activeCategory === c
-                    ? "bg-orange-500 text-white shadow-orange-500/20"
-                    : "bg-white border border-zinc-200 text-zinc-700 hover:text-orange-600 hover:border-orange-300"
+                    ? "bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-orange-500/20"
+                    : "bg-white border border-slate-200/90 text-slate-700 hover:text-orange-600 hover:border-orange-300"
                 }`}
               >
                 {c}
@@ -151,30 +151,30 @@ function FAQ() {
                 key={faq.id}
                 className={`overflow-hidden rounded-2xl border transition duration-300 ${
                   isOpen
-                    ? "border-orange-400 bg-orange-50/20 shadow-md"
-                    : "border-zinc-200 bg-white hover:border-zinc-300 shadow-sm"
+                    ? "border-orange-300 bg-orange-50/30 shadow-md ring-1 ring-orange-200/50"
+                    : "border-slate-200/90 bg-white hover:border-slate-300 shadow-sm"
                 }`}
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left"
                 >
                   <div className="flex items-center gap-3.5">
                     <span
                       className={`text-xs font-mono font-bold ${
-                        isOpen ? "text-orange-600" : "text-zinc-400"
+                        isOpen ? "text-orange-600" : "text-slate-400"
                       }`}
                     >
                       0{faq.id}
                     </span>
-                    <span className="text-sm font-bold text-zinc-900 sm:text-base">
+                    <span className="text-sm font-bold text-slate-900 sm:text-base">
                       {faq.question}
                     </span>
                   </div>
 
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-orange-500 text-white" : "bg-zinc-100 text-zinc-600"
+                      isOpen ? "rotate-180 bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-sm" : "bg-slate-100 text-slate-600"
                     }`}
                   >
                     ↓
@@ -182,15 +182,15 @@ function FAQ() {
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-zinc-100 px-6 pb-6 pt-3">
-                    <p className="text-xs sm:text-sm leading-relaxed text-zinc-600">
+                  <div className="border-t border-slate-100 px-5 sm:px-6 pb-5 sm:pb-6 pt-3.5">
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
                       {faq.answer}
                     </p>
-                    <div className="mt-3 flex items-center justify-between text-[11px] text-zinc-500">
+                    <div className="mt-3 flex items-center justify-between text-[11px] text-slate-500">
                       <span>Category: {faq.category}</span>
                       <a
                         href="#contact"
-                        className="text-orange-600 hover:underline font-bold"
+                        className="text-orange-600 hover:text-orange-700 hover:underline font-bold"
                       >
                         Ask more details →
                       </a>
@@ -204,17 +204,17 @@ function FAQ() {
 
         {/* Empty state */}
         {filteredFaqs.length === 0 && (
-          <div className="mt-8 rounded-2xl border border-zinc-200 bg-white p-8 text-center text-zinc-500 text-xs shadow-sm">
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-500 text-xs shadow-sm">
             No FAQ found matching "{search}".
           </div>
         )}
 
         {/* Still have questions banner */}
-        <div className="mt-14 rounded-3xl border border-orange-200 bg-gradient-to-r from-orange-50 via-white to-orange-50 p-8 text-center shadow-sm">
-          <h3 className="text-xl font-bold text-zinc-950 sm:text-2xl">
+        <div className="mt-14 rounded-3xl border border-orange-200/90 bg-gradient-to-br from-orange-50/80 via-white to-amber-50/60 p-6 sm:p-8 text-center shadow-sm">
+          <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
             Have a project-specific query?
           </h3>
-          <p className="mt-2 text-xs text-zinc-600 max-w-lg mx-auto">
+          <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
             Our fabrication engineers are happy to explain structural options, glass specifications, and price comparisons on call.
           </p>
 
@@ -223,13 +223,13 @@ function FAQ() {
               href="https://wa.me/919468815735"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-[#25D366] px-6 py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59]"
+              className="w-full sm:w-auto rounded-xl bg-[#25D366] px-6 py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59]"
             >
               Ask on WhatsApp
             </a>
             <a
               href="tel:+919468815735"
-              className="rounded-xl border border-zinc-300 bg-white px-6 py-3 text-xs font-bold text-zinc-800 transition hover:border-orange-500 hover:text-orange-600 shadow-sm"
+              className="w-full sm:w-auto rounded-xl border border-slate-300/90 bg-white px-6 py-3 text-xs font-bold text-slate-800 transition hover:border-orange-500 hover:text-orange-600 shadow-sm"
             >
               Call +91 94688 15735
             </a>
