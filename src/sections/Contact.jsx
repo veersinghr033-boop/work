@@ -56,6 +56,7 @@ function Contact({ prefilledProduct = "", onShowToast }) {
       `*New Project Enquiry - Ramdev Steel*%0A%0A` +
       `*Name:* ${formData.name || "Customer"}%0A` +
       `*Phone:* ${formData.phone || "Not provided"}%0A` +
+      `*Email:* ${formData.email || "Not provided"}%0A` +
       `*Service:* ${formData.service}%0A` +
       `*Steel Grade:* ${formData.grade}%0A` +
       `*Approx Dimension:* ${formData.approxSize || "To be measured"}%0A` +
