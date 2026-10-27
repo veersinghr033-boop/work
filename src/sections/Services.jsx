@@ -64,7 +64,7 @@ function Services() {
   };
 
   return (
-    <section id="services" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90">
+    <section id="services" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

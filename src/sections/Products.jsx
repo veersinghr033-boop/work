@@ -121,13 +121,21 @@ function Products({ onSelectProductForQuote }) {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && selectedProduct) {
+        setSelectedProduct(null);
+      }
+    };
+
     if (selectedProduct) {
       document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
     } else {
       document.body.style.overflow = "unset";
     }
     return () => {
       document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [selectedProduct]);
 
@@ -149,7 +157,7 @@ function Products({ onSelectProductForQuote }) {
   };
 
   return (
-    <section id="products" className="relative bg-white py-20 sm:py-28 lg:py-32">
+    <section id="products" className="relative bg-white py-20 sm:py-28 lg:py-32 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -417,15 +425,15 @@ function Products({ onSelectProductForQuote }) {
                   </div>
                 </div>
 
-                <div className="mt-5 flex gap-2.5">
+                <div className="mt-5 flex flex-col sm:flex-row gap-2.5">
                   <button
                     onClick={() => {
                       handleWhatsAppProduct(selectedProduct);
                       setSelectedProduct(null);
                     }}
-                    className="flex-1 rounded-xl bg-[#25D366] py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59]"
+                    className="flex-1 rounded-xl bg-[#25D366] py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59] active:scale-[0.98] min-h-[44px] flex items-center justify-center gap-1.5"
                   >
-                    Inquire on WhatsApp
+                    <span>💬 Inquire on WhatsApp</span>
                   </button>
                   <a
                     href="#contact"
@@ -435,7 +443,7 @@ function Products({ onSelectProductForQuote }) {
                       }
                       setSelectedProduct(null);
                     }}
-                    className="flex-1 text-center rounded-xl bg-orange-600 py-3 text-xs font-bold text-white transition hover:bg-orange-700 shadow-sm"
+                    className="flex-1 text-center rounded-xl bg-orange-600 py-3 text-xs font-bold text-white transition hover:bg-orange-700 shadow-sm active:scale-[0.98] min-h-[44px] flex items-center justify-center"
                   >
                     Request Free Quote
                   </a>

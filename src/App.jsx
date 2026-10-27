@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col pb-16 lg:pb-0 w-full max-w-full overflow-x-hidden relative">
       {/* Toast Notification Container */}
       <Toast
         message={toastMessage}
@@ -43,7 +43,7 @@ function App() {
       <Navbar />
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         <Hero />
         <CostEstimator onShowToast={showToast} />
         <Products onSelectProductForQuote={handleSelectProductForQuote} />

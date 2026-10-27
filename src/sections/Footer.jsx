@@ -4,8 +4,8 @@ function Footer() {
   };
 
   return (
-    <footer className="relative bg-slate-950 text-slate-400 border-t border-slate-800/80 pt-16 pb-12">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <footer className="relative bg-slate-950 text-slate-400 border-t border-slate-800/80 pt-16 pb-12 overflow-hidden w-full max-w-full">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 w-full">
         
         {/* Main Footer Grid */}
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 pb-12 border-b border-slate-800/80">
@@ -171,12 +171,12 @@ function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-slate-500 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-slate-500 sm:flex-row text-center sm:text-left">
           <p>© {new Date().getFullYear()} Ramdev Steel Industries. All rights reserved. Crafted with precision in India.</p>
           
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
             <span className="text-slate-500">ISO 9001 Quality Grade Compliant</span>
-            <span className="h-3 w-px bg-slate-800" />
+            <span className="h-3 w-px bg-slate-800 hidden xs:inline-block" />
             <button
               onClick={scrollToTop}
               className="flex items-center gap-1.5 text-slate-400 hover:text-orange-400 transition"

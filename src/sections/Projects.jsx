@@ -95,13 +95,21 @@ function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && selectedProject) {
+        setSelectedProject(null);
+      }
+    };
+
     if (selectedProject) {
       document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
     } else {
       document.body.style.overflow = "unset";
     }
     return () => {
       document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [selectedProject]);
 
@@ -117,7 +125,7 @@ function Projects() {
   };
 
   return (
-    <section id="projects" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90">
+    <section id="projects" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

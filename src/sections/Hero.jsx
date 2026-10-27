@@ -4,7 +4,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] sm:min-h-screen overflow-hidden bg-slate-50 pt-24 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 flex items-center"
+      className="relative min-h-[92vh] sm:min-h-screen overflow-hidden bg-slate-50 pt-24 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 flex items-center w-full max-w-full"
     >
       {/* Background Architectural Steel Image */}
       <div
@@ -31,15 +31,15 @@ function Hero() {
           <div className="lg:col-span-7 xl:col-span-8">
             
             {/* Trust Pill */}
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50/90 px-3.5 py-1.5 shadow-sm">
-              <span className="flex h-2 w-2 rounded-full bg-orange-500 animate-ping" />
-              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-800">
+            <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50/90 px-3 py-1.5 sm:px-3.5 shadow-sm">
+              <span className="flex h-2 w-2 shrink-0 rounded-full bg-orange-500 animate-ping" />
+              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-800 break-words leading-tight">
                 SS 304 & 316 Fabrication • Est. 2004 in Rajasthan
               </span>
             </div>
 
             {/* Main Title - Mobile Optimized */}
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-tight text-slate-900 leading-[1.12]">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-tight text-slate-900 leading-[1.12] break-words">
               Strength You See.{" "}
               <span className="block bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Precision You Trust.
@@ -55,19 +55,19 @@ function Hero() {
             {/* Checkmark Quality Highlights */}
             <div className="mt-5 sm:mt-6 flex flex-wrap gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-700 font-semibold">
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs">
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs shrink-0">
                   ✓
                 </span>
                 <span>Genuine SS 304 / 316 Testing</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs">
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs shrink-0">
                   ✓
                 </span>
                 <span>Argon TIG Seamless Welds</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs">
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs shrink-0">
                   ✓
                 </span>
                 <span>Turnkey On-Site Fitment</span>
@@ -80,11 +80,11 @@ function Hero() {
                 href="#calculator"
                 className="group flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3.5 sm:py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:from-orange-600 hover:to-orange-700 active:scale-[0.98]"
               >
-                <svg className="h-4.5 w-4.5 text-orange-100 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-4.5 w-4.5 text-orange-100 transition-transform group-hover:rotate-12 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <span>Calculate Cost Instantly</span>
-                <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px] font-black uppercase text-white">Free</span>
+                <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px] font-black uppercase text-white shrink-0">Free</span>
               </a>
 
               <div className="grid grid-cols-2 gap-2.5 w-full sm:w-auto sm:flex sm:items-center">
@@ -93,7 +93,7 @@ function Hero() {
                   className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-2xl border border-slate-300 bg-white px-3.5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-800 shadow-sm transition-all duration-300 hover:border-orange-500 hover:text-orange-600 active:scale-[0.98]"
                 >
                   <span>Products</span>
-                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
@@ -111,29 +111,29 @@ function Hero() {
             </div>
 
             {/* Performance Metric Counters - 2-cols on mobile */}
-            <div className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 border-t border-slate-200 pt-6 sm:pt-8">
-              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+            <div className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 border-t border-slate-200 pt-6 sm:pt-8 w-full">
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">20+</p>
-                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600">Years Experience</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Est. 2004 in Jodhpur</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600 break-words leading-tight">Years Experience</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Est. 2004 in Jodhpur</p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">500+</p>
-                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">Projects Delivered</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Villas & Complexes</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700 break-words leading-tight">Projects Delivered</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Villas & Complexes</p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">100%</p>
-                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600">Quality Tested</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Certified 304/316</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600 break-words leading-tight">Quality Tested</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Certified 304/316</p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">4.9★</p>
-                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">Client Rating</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Verified Reviews</p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700 break-words leading-tight">Client Rating</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Verified Reviews</p>
               </div>
             </div>
 

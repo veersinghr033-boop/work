@@ -189,7 +189,7 @@ Call: +91 94688 15735`;
   }, [selectedType]);
 
   return (
-    <section id="calculator" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-y border-slate-200/90">
+    <section id="calculator" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-y border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -324,16 +324,16 @@ Call: +91 94688 15735`;
                 </div>
 
                 {/* Quick Presets for Mobile */}
-                <div className="mt-2.5 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+                <div className="mt-2.5 flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar">
                   <span className="text-[10px] uppercase font-bold text-slate-400 whitespace-nowrap">Presets:</span>
                   {dimensionPresets.map((preset) => (
                     <button
                       key={preset}
                       type="button"
                       onClick={() => setQuantity(preset)}
-                      className={`rounded-lg px-2.5 py-1 text-xs font-bold transition whitespace-nowrap ${
+                      className={`rounded-xl px-3 py-1.5 text-xs font-bold transition whitespace-nowrap min-h-[36px] flex items-center ${
                         quantity === preset
-                          ? "bg-orange-600 text-white shadow-sm"
+                          ? "bg-orange-600 text-white shadow-sm ring-1 ring-orange-600"
                           : "bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800"
                       }`}
                     >
@@ -351,11 +351,11 @@ Call: +91 94688 15735`;
                     onChange={(e) => setQuantity(Number(e.target.value))}
                     className="h-3 sm:h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-orange-600 py-2 sm:py-0"
                   />
-                  <div className="flex items-center gap-1 shrink-0">
+                  <div className="flex items-center gap-1.5 shrink-0">
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.max(selectedType.minQty, quantity - (selectedType.unit.includes("Step") ? 1 : 5)))}
-                      className="flex h-9 w-8 sm:w-9 items-center justify-center rounded-xl border border-slate-300 bg-white text-base font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm"
+                      className="flex h-10 w-10 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-lg font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm min-h-[40px] min-w-[40px]"
                       aria-label="Decrease quantity"
                     >
                       −
@@ -366,12 +366,12 @@ Call: +91 94688 15735`;
                       max={selectedType.maxQty}
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-16 sm:w-20 rounded-xl border border-slate-300 bg-slate-50 px-2 sm:px-3 py-2 text-center text-base sm:text-sm font-bold text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                      className="w-16 sm:w-20 h-10 rounded-xl border border-slate-300 bg-slate-50 px-2 sm:px-3 text-center text-base sm:text-sm font-bold text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                     />
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.min(selectedType.maxQty, quantity + (selectedType.unit.includes("Step") ? 1 : 5)))}
-                      className="flex h-9 w-8 sm:w-9 items-center justify-center rounded-xl border border-slate-300 bg-white text-base font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm"
+                      className="flex h-10 w-10 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-lg font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm min-h-[40px] min-w-[40px]"
                       aria-label="Increase quantity"
                     >
                       +
@@ -389,37 +389,40 @@ Call: +91 94688 15735`;
                   <button
                     type="button"
                     onClick={() => setHasToughenedGlass(!hasToughenedGlass)}
-                    className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
+                    className={`rounded-xl border px-3.5 py-2.5 text-xs font-semibold transition min-h-[42px] flex items-center gap-1.5 ${
                       hasToughenedGlass
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
-                    + 12mm Toughened Glass
+                    <span>{hasToughenedGlass ? "✓" : "+"}</span>
+                    <span>12mm Toughened Glass</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setHasWoodenHandrail(!hasWoodenHandrail)}
-                    className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
+                    className={`rounded-xl border px-3.5 py-2.5 text-xs font-semibold transition min-h-[42px] flex items-center gap-1.5 ${
                       hasWoodenHandrail
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
-                    + Teakwood Handrail Grip
+                    <span>{hasWoodenHandrail ? "✓" : "+"}</span>
+                    <span>Teakwood Handrail Grip</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setHasLaserCutPattern(!hasLaserCutPattern)}
-                    className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
+                    className={`rounded-xl border px-3.5 py-2.5 text-xs font-semibold transition min-h-[42px] flex items-center gap-1.5 ${
                       hasLaserCutPattern
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
-                    + CNC Laser Cut Design
+                    <span>{hasLaserCutPattern ? "✓" : "+"}</span>
+                    <span>CNC Laser Cut Design</span>
                   </button>
                 </div>
               </div>

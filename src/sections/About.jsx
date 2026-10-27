@@ -2,7 +2,7 @@ import { aboutImage } from "../assets/heroImages";
 
 function About() {
   return (
-    <section id="about" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90">
+    <section id="about" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Top Heading */}
@@ -11,7 +11,7 @@ function About() {
             <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
               <span>🏭 About Ramdev Steel Industries</span>
             </div>
-            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl break-words">
               Engineering Built on <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Integrity & Quality.
@@ -40,19 +40,19 @@ function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
 
             {/* Experience Card Overlay */}
-            <div className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 flex items-center justify-between rounded-2xl border border-white/20 bg-white/95 p-4 sm:p-6 backdrop-blur-md shadow-2xl">
-              <div>
-                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">20+</p>
-                <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-orange-700">
-                  Years Fabrication Mastery
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 flex items-center justify-between rounded-2xl border border-white/20 bg-white/95 p-3 sm:p-6 backdrop-blur-md shadow-2xl">
+              <div className="min-w-0 pr-2">
+                <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">20+</p>
+                <p className="text-[9px] xs:text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-orange-700 leading-tight">
+                  Years Mastery
                 </p>
               </div>
 
-              <div className="h-9 w-px bg-slate-200" />
+              <div className="h-8 sm:h-9 w-px bg-slate-200 shrink-0" />
 
-              <div>
-                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">500+</p>
-                <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-600">
+              <div className="min-w-0 pl-2">
+                <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">500+</p>
+                <p className="text-[9px] xs:text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-600 leading-tight">
                   Architectural Deliveries
                 </p>
               </div>

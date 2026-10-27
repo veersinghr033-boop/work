@@ -81,7 +81,7 @@ function FAQ() {
   }, [activeCategory, search]);
 
   return (
-    <section id="faq" className="relative bg-slate-50 py-24 sm:py-28 lg:py-32 border-t border-slate-200/80">
+    <section id="faq" className="relative bg-slate-50 py-24 sm:py-28 lg:py-32 border-t border-slate-200/80 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
         
         {/* Header */}
