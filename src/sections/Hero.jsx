@@ -1,4 +1,6 @@
-import { heroImage } from "../assets/heroImages";
+import { heroImage } from "../data/hero";
+import { FiCheck, FiArrowRight } from "react-icons/fi";
+import { FaWhatsapp, FaCalculator, FaStar } from "react-icons/fa";
 
 function Hero() {
   return (
@@ -26,10 +28,10 @@ function Hero() {
       {/* Main Content Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          
+
           {/* Left Column: Headline & Action CTAs */}
           <div className="lg:col-span-7 xl:col-span-8">
-            
+
             {/* Trust Pill */}
             <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50/90 px-3 py-1.5 sm:px-3.5 shadow-sm">
               <span className="flex h-2 w-2 shrink-0 rounded-full bg-orange-500 animate-ping" />
@@ -55,20 +57,20 @@ function Hero() {
             {/* Checkmark Quality Highlights */}
             <div className="mt-5 sm:mt-6 flex flex-wrap gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-700 font-semibold">
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs shrink-0">
-                  ✓
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 shrink-0">
+                  <FiCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 stroke-[3]" />
                 </span>
                 <span>Genuine SS 304 / 316 Testing</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs shrink-0">
-                  ✓
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 shrink-0">
+                  <FiCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 stroke-[3]" />
                 </span>
                 <span>Argon TIG Seamless Welds</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold text-xs shrink-0">
-                  ✓
+                <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 shrink-0">
+                  <FiCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 stroke-[3]" />
                 </span>
                 <span>Turnkey On-Site Fitment</span>
               </div>
@@ -80,9 +82,7 @@ function Hero() {
                 href="#calculator"
                 className="group flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3.5 sm:py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:from-orange-600 hover:to-orange-700 active:scale-[0.98]"
               >
-                <svg className="h-4.5 w-4.5 text-orange-100 transition-transform group-hover:rotate-12 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
+                <FaCalculator className="h-4.5 w-4.5 text-orange-100 transition-transform group-hover:rotate-12 shrink-0" />
                 <span>Calculate Cost Instantly</span>
                 <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px] font-black uppercase text-white shrink-0">Free</span>
               </a>
@@ -93,9 +93,7 @@ function Hero() {
                   className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-2xl border border-slate-300 bg-white px-3.5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-800 shadow-sm transition-all duration-300 hover:border-orange-500 hover:text-orange-600 active:scale-[0.98]"
                 >
                   <span>Products</span>
-                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <FiArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                 </a>
 
                 <a
@@ -104,8 +102,8 @@ function Hero() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-2xl border border-emerald-300 bg-emerald-50 px-3.5 sm:px-5 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-emerald-800 transition hover:bg-emerald-100 shadow-sm active:scale-[0.98]"
                 >
+                  <FaWhatsapp className="h-4 w-4 text-emerald-600" />
                   <span>WhatsApp</span>
-                  <span className="text-xs">💬</span>
                 </a>
               </div>
             </div>
@@ -131,7 +129,9 @@ function Hero() {
               </div>
 
               <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
-                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">4.9★</p>
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600 flex items-center gap-1">
+                  4.9 <FaStar className="h-5 w-5 text-amber-500 inline -mt-1" />
+                </p>
                 <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700 break-words leading-tight">Client Rating</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Verified Reviews</p>
               </div>
@@ -142,7 +142,7 @@ function Hero() {
           {/* Right Column: Architectural Quality Snapshot Card (Hidden on small mobile, visible on lg) */}
           <div className="hidden lg:col-span-5 xl:col-span-4 lg:block">
             <div className="relative rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-xl backdrop-blur-md">
-              
+
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 rounded-full bg-red-400" />

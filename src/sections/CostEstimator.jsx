@@ -1,103 +1,5 @@
 import { useState, useMemo } from "react";
-
-const workTypes = [
-  {
-    id: "ss-glass-railing",
-    name: "SS Glass Railing",
-    unit: "RFT (Running Feet)",
-    defaultQty: 30,
-    minQty: 10,
-    maxQty: 200,
-    baseRate304: 1650,
-    baseRate316: 2200,
-    baseRate202: 1250,
-    description: "12mm Toughened Glass with SS 304/316 Spigots or Continuous Base Profile & Top Handrail.",
-    popular: true,
-  },
-  {
-    id: "ss-pipe-railing",
-    name: "SS Balcony & Stair Railing",
-    unit: "RFT (Running Feet)",
-    defaultQty: 40,
-    minQty: 10,
-    maxQty: 300,
-    baseRate304: 1100,
-    baseRate316: 1550,
-    baseRate202: 750,
-    description: "Classic multi-pipe baluster railing with 2-inch master post and horizontal safety pipes.",
-    popular: false,
-  },
-  {
-    id: "ss-main-gate",
-    name: "Designer Main Entrance Gate",
-    unit: "SQFT (Square Feet)",
-    defaultQty: 75,
-    minQty: 30,
-    maxQty: 300,
-    baseRate304: 1450,
-    baseRate316: 1950,
-    baseRate202: 950,
-    description: "Heavy structural SS frame with laser-cut CNC sheets, teakwood inserts, or decorative tubes.",
-    popular: true,
-  },
-  {
-    id: "ss-window-grill",
-    name: "SS Safety Window Grill",
-    unit: "SQFT (Square Feet)",
-    defaultQty: 50,
-    minQty: 15,
-    maxQty: 250,
-    baseRate304: 680,
-    baseRate316: 920,
-    baseRate202: 450,
-    description: "Anti-burglary solid or hollow SS rods with clean TIG welded junction joints and flush wall mounts.",
-    popular: false,
-  },
-  {
-    id: "ss-spiral-staircase",
-    name: "Custom SS Spiral / Floating Stairs",
-    unit: "Step Units",
-    defaultQty: 16,
-    minQty: 8,
-    maxQty: 40,
-    baseRate304: 4500,
-    baseRate316: 6200,
-    baseRate202: 3200,
-    description: "Architectural central spine or stringer staircase with laser cut treads and integrated railings.",
-    popular: false,
-  },
-];
-
-const steelGrades = [
-  {
-    id: "304",
-    name: "SS 304 Grade",
-    tag: "Most Recommended",
-    desc: "18% Chrome + 8% Nickel. Superior rust resistance for outdoor balconies and exterior gates.",
-    multiplier: 1.0,
-  },
-  {
-    id: "316",
-    name: "SS 316 Marine Grade",
-    tag: "Maximum Durability",
-    desc: "Includes Molybdenum for coastal, humid, or chemical industrial environments.",
-    multiplier: 1.35,
-  },
-  {
-    id: "202",
-    name: "SS 202 Grade",
-    tag: "Budget / Indoor",
-    desc: "Manganese substituted. Best suited for interior covered stairs, indoor handrails & budget projects.",
-    multiplier: 0.7,
-  },
-];
-
-const finishOptions = [
-  { id: "mirror", name: "High Gloss Mirror Polish", extraRate: 0, tag: "Standard" },
-  { id: "satin", name: "Satin / Brushed Hairline", extraRate: 60, tag: "Modern Matte" },
-  { id: "pvd-gold", name: "PVD Titanium Gold / Rose Gold", extraRate: 450, tag: "Luxury Finish" },
-  { id: "pvd-black", name: "PVD Matte Black", extraRate: 400, tag: "Architectural" },
-];
+import { workTypes, steelGrades, finishOptions } from "../data/estimator";
 
 function CostEstimator({ onShowToast }) {
   const [selectedType, setSelectedType] = useState(workTypes[0]);
@@ -210,18 +112,18 @@ Call: +91 94688 15735`;
         </div>
 
         {/* Main Estimator Card */}
-        <div className="mt-10 sm:mt-14 rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/50">
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+        <div className="mt-10 sm:mt-14 rounded-3xl border border-slate-200/90 bg-white p-3.5 xs:p-4.5 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/50 w-full max-w-full overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10 w-full min-w-0">
             
             {/* Left Options Configurator */}
-            <div className="lg:col-span-7 space-y-7">
+            <div className="lg:col-span-7 space-y-6 sm:space-y-7 w-full min-w-0">
               
               {/* Step 1: Work Type */}
-              <div>
+              <div className="w-full min-w-0">
                 <label className="text-xs font-bold uppercase tracking-wider text-orange-700">
                   Step 1: Choose Fabrication Type
                 </label>
-                <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+                <div className="mt-3 grid gap-2.5 sm:grid-cols-2 w-full min-w-0">
                   {workTypes.map((type) => {
                     const isSelected = selectedType.id === type.id;
                     return (
@@ -229,19 +131,19 @@ Call: +91 94688 15735`;
                         key={type.id}
                         type="button"
                         onClick={() => handleTypeChange(type)}
-                        className={`relative rounded-2xl border p-3.5 sm:p-4 text-left transition-all ${
+                        className={`relative rounded-2xl border p-3.5 sm:p-4 text-left transition-all w-full min-w-0 overflow-hidden ${
                           isSelected
                             ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
                             : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
                         }`}
                       >
                         {type.popular && (
-                          <span className="absolute right-3 top-3 rounded-full bg-orange-100 px-2 py-0.5 text-[9px] font-bold text-orange-800 uppercase border border-orange-200">
+                          <span className="absolute right-2.5 top-2.5 sm:right-3 sm:top-3 rounded-full bg-orange-100 px-2 py-0.5 text-[9px] font-bold text-orange-800 uppercase border border-orange-200 shrink-0">
                             Popular
                           </span>
                         )}
-                        <h4 className="text-sm font-bold text-slate-900 pr-12">{type.name}</h4>
-                        <p className="mt-1 text-xs text-slate-500 line-clamp-2 leading-relaxed">{type.description}</p>
+                        <h4 className="text-sm font-bold text-slate-900 pr-14 break-words">{type.name}</h4>
+                        <p className="mt-1 text-xs text-slate-500 line-clamp-2 leading-relaxed break-words">{type.description}</p>
                       </button>
                     );
                   })}
@@ -249,11 +151,11 @@ Call: +91 94688 15735`;
               </div>
 
               {/* Step 2: SS Grade */}
-              <div>
+              <div className="w-full min-w-0">
                 <label className="text-xs font-bold uppercase tracking-wider text-orange-700">
                   Step 2: Choose Stainless Steel Grade
                 </label>
-                <div className="mt-3 grid gap-2.5 sm:grid-cols-3">
+                <div className="mt-3 grid gap-2.5 sm:grid-cols-3 w-full min-w-0">
                   {steelGrades.map((grade) => {
                     const isSelected = selectedGrade.id === grade.id;
                     return (
@@ -261,17 +163,17 @@ Call: +91 94688 15735`;
                         key={grade.id}
                         type="button"
                         onClick={() => setSelectedGrade(grade)}
-                        className={`rounded-2xl border p-3.5 text-left transition-all ${
+                        className={`rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${
                           isSelected
                             ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
                             : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
                         }`}
                       >
-                        <span className="text-sm font-bold text-slate-900 block">{grade.name}</span>
+                        <span className="text-sm font-bold text-slate-900 block break-words">{grade.name}</span>
                         <span className="mt-1 inline-block text-[10px] font-bold text-orange-700 bg-orange-100/70 px-2 py-0.5 rounded-full border border-orange-200">
                           {grade.tag}
                         </span>
-                        <p className="mt-1.5 text-[11px] text-slate-500 line-clamp-2 leading-relaxed">{grade.desc}</p>
+                        <p className="mt-1.5 text-[11px] text-slate-500 line-clamp-2 leading-relaxed break-words">{grade.desc}</p>
                       </button>
                     );
                   })}
@@ -279,11 +181,11 @@ Call: +91 94688 15735`;
               </div>
 
               {/* Step 3: Finish */}
-              <div>
+              <div className="w-full min-w-0">
                 <label className="text-xs font-bold uppercase tracking-wider text-orange-700">
                   Step 3: Surface Finish & Coating
                 </label>
-                <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+                <div className="mt-3 grid gap-2.5 sm:grid-cols-2 w-full min-w-0">
                   {finishOptions.map((finish) => {
                     const isSelected = selectedFinish.id === finish.id;
                     return (
@@ -291,18 +193,18 @@ Call: +91 94688 15735`;
                         key={finish.id}
                         type="button"
                         onClick={() => setSelectedFinish(finish)}
-                        className={`flex items-center justify-between rounded-2xl border p-3.5 text-left transition-all ${
+                        className={`flex items-center justify-between gap-2 rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${
                           isSelected
                             ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
                             : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
                         }`}
                       >
-                        <div>
-                          <p className="text-xs font-bold text-slate-900">{finish.name}</p>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-bold text-slate-900 break-words">{finish.name}</p>
                           <p className="text-[10px] text-slate-500">{finish.tag}</p>
                         </div>
                         {finish.extraRate > 0 && (
-                          <span className="text-[11px] font-bold text-orange-600 bg-orange-100/80 px-2 py-0.5 rounded-lg border border-orange-200">
+                          <span className="text-[11px] font-bold text-orange-600 bg-orange-100/80 px-2 py-0.5 rounded-lg border border-orange-200 shrink-0">
                             +₹{finish.extraRate}
                           </span>
                         )}
@@ -313,25 +215,25 @@ Call: +91 94688 15735`;
               </div>
 
               {/* Step 4: Dimensions Slider & Mobile Quick Presets */}
-              <div>
-                <div className="flex items-center justify-between">
+              <div className="w-full min-w-0">
+                <div className="flex flex-wrap items-center justify-between gap-1">
                   <label className="text-xs font-bold uppercase tracking-wider text-orange-700">
                     Step 4: Approximate Dimension ({selectedType.unit})
                   </label>
-                  <span className="text-sm font-black text-orange-600 bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-200">
+                  <span className="text-xs sm:text-sm font-black text-orange-600 bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-200 shrink-0">
                     {quantity} {selectedType.unit.split(" ")[0]}
                   </span>
                 </div>
 
                 {/* Quick Presets for Mobile */}
-                <div className="mt-2.5 flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 whitespace-nowrap">Presets:</span>
+                <div className="mt-2.5 flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar w-full min-w-0 max-w-full">
+                  <span className="text-[10px] uppercase font-bold text-slate-400 whitespace-nowrap shrink-0">Presets:</span>
                   {dimensionPresets.map((preset) => (
                     <button
                       key={preset}
                       type="button"
                       onClick={() => setQuantity(preset)}
-                      className={`rounded-xl px-3 py-1.5 text-xs font-bold transition whitespace-nowrap min-h-[36px] flex items-center ${
+                      className={`rounded-xl px-3 py-1.5 text-xs font-bold transition whitespace-nowrap min-h-[36px] flex items-center shrink-0 ${
                         quantity === preset
                           ? "bg-orange-600 text-white shadow-sm ring-1 ring-orange-600"
                           : "bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800"
@@ -342,20 +244,22 @@ Call: +91 94688 15735`;
                   ))}
                 </div>
 
-                <div className="mt-3 flex items-center gap-2 sm:gap-4">
-                  <input
-                    type="range"
-                    min={selectedType.minQty}
-                    max={selectedType.maxQty}
-                    value={quantity}
-                    onChange={(e) => setQuantity(Number(e.target.value))}
-                    className="h-3 sm:h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-orange-600 py-2 sm:py-0"
-                  />
-                  <div className="flex items-center gap-1.5 shrink-0">
+                <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 w-full min-w-0">
+                  <div className="w-full min-w-0 flex-1">
+                    <input
+                      type="range"
+                      min={selectedType.minQty}
+                      max={selectedType.maxQty}
+                      value={quantity}
+                      onChange={(e) => setQuantity(Number(e.target.value))}
+                      className="h-3 sm:h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-orange-600 py-2 sm:py-0"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto shrink-0">
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.max(selectedType.minQty, quantity - (selectedType.unit.includes("Step") ? 1 : 5)))}
-                      className="flex h-10 w-10 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-lg font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm min-h-[40px] min-w-[40px]"
+                      className="flex-1 sm:flex-none flex h-10 w-10 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-lg font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm min-h-[40px] min-w-[40px]"
                       aria-label="Decrease quantity"
                     >
                       −
@@ -366,12 +270,12 @@ Call: +91 94688 15735`;
                       max={selectedType.maxQty}
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-16 sm:w-20 h-10 rounded-xl border border-slate-300 bg-slate-50 px-2 sm:px-3 text-center text-base sm:text-sm font-bold text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                      className="w-20 h-10 rounded-xl border border-slate-300 bg-slate-50 px-2 text-center text-base sm:text-sm font-bold text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                     />
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.min(selectedType.maxQty, quantity + (selectedType.unit.includes("Step") ? 1 : 5)))}
-                      className="flex h-10 w-10 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-lg font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm min-h-[40px] min-w-[40px]"
+                      className="flex-1 sm:flex-none flex h-10 w-10 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-lg font-bold text-slate-700 hover:bg-orange-50 hover:text-orange-600 active:scale-95 shadow-sm min-h-[40px] min-w-[40px]"
                       aria-label="Increase quantity"
                     >
                       +
@@ -381,48 +285,48 @@ Call: +91 94688 15735`;
               </div>
 
               {/* Step 5: Optional Add-ons */}
-              <div>
+              <div className="w-full min-w-0">
                 <label className="text-xs font-bold uppercase tracking-wider text-orange-700">
                   Optional Add-Ons & Enhancements
                 </label>
-                <div className="mt-3 flex flex-wrap gap-2 sm:gap-2.5">
+                <div className="mt-3 flex flex-wrap gap-2 sm:gap-2.5 w-full min-w-0">
                   <button
                     type="button"
                     onClick={() => setHasToughenedGlass(!hasToughenedGlass)}
-                    className={`rounded-xl border px-3.5 py-2.5 text-xs font-semibold transition min-h-[42px] flex items-center gap-1.5 ${
+                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${
                       hasToughenedGlass
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
                     <span>{hasToughenedGlass ? "✓" : "+"}</span>
-                    <span>12mm Toughened Glass</span>
+                    <span className="break-words">12mm Toughened Glass</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setHasWoodenHandrail(!hasWoodenHandrail)}
-                    className={`rounded-xl border px-3.5 py-2.5 text-xs font-semibold transition min-h-[42px] flex items-center gap-1.5 ${
+                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${
                       hasWoodenHandrail
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
                     <span>{hasWoodenHandrail ? "✓" : "+"}</span>
-                    <span>Teakwood Handrail Grip</span>
+                    <span className="break-words">Teakwood Handrail Grip</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setHasLaserCutPattern(!hasLaserCutPattern)}
-                    className={`rounded-xl border px-3.5 py-2.5 text-xs font-semibold transition min-h-[42px] flex items-center gap-1.5 ${
+                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${
                       hasLaserCutPattern
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
                     <span>{hasLaserCutPattern ? "✓" : "+"}</span>
-                    <span>CNC Laser Cut Design</span>
+                    <span className="break-words">CNC Laser Cut Design</span>
                   </button>
                 </div>
               </div>
@@ -430,14 +334,14 @@ Call: +91 94688 15735`;
             </div>
 
             {/* Right Live Estimate Summary */}
-            <div className="lg:col-span-5">
-              <div className="sticky top-28 rounded-3xl border border-orange-200/90 bg-gradient-to-b from-orange-50/90 via-white to-white p-5 sm:p-7 lg:p-8 shadow-xl shadow-orange-500/5">
+            <div className="lg:col-span-5 w-full min-w-0">
+              <div className="sticky top-28 rounded-3xl border border-orange-200/90 bg-gradient-to-b from-orange-50/90 via-white to-white p-4 sm:p-7 lg:p-8 shadow-xl shadow-orange-500/5 w-full min-w-0 overflow-hidden">
                 
-                <div className="flex items-center justify-between border-b border-orange-100 pb-3.5">
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+                <div className="flex items-center justify-between border-b border-orange-100 pb-3.5 gap-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-500 truncate">
                     Live Estimate Summary
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800 border border-emerald-200">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800 border border-emerald-200 shrink-0">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
                     Calculated
                   </span>
@@ -448,10 +352,10 @@ Call: +91 94688 15735`;
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     Estimated Budget Range
                   </span>
-                  <div className="mt-1 text-2xl xs:text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                  <div className="mt-1 text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight break-words">
                     ₹{calculation.lowRange.toLocaleString()} - ₹{calculation.highRange.toLocaleString()}
                   </div>
-                  <p className="mt-1.5 text-xs text-orange-700 font-bold bg-orange-100/70 py-1 px-3 rounded-full inline-block border border-orange-200">
+                  <p className="mt-1.5 text-xs text-orange-700 font-bold bg-orange-100/70 py-1 px-3 rounded-full inline-block border border-orange-200 max-w-full break-words">
                     ~ ₹{calculation.unitRate.toLocaleString()} per {selectedType.unit.split(" ")[0]} (all inclusive)
                   </p>
                 </div>

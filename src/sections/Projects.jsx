@@ -1,94 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
-import { projectImages } from "../assets/projectImages";
-
-const categories = [
-  "All",
-  "Railings",
-  "Gates",
-  "Grills",
-  "Commercial",
-];
-
-const projects = [
-  {
-    id: 1,
-    title: "Minimalist SS 304 Staircase Railing",
-    category: "Railings",
-    location: "Luxury Villa, Shastri Nagar, Jodhpur",
-    client: "Private Residential Estate",
-    grade: "SS 304 Prime Polish",
-    finish: "High-Gloss Mirror Buff",
-    scope: "120 RFT Custom Curved & Straight Stairs",
-    description:
-      "A stunning architectural staircase featuring continuous seamless SS 304 tubular handrails with laser-cut baluster mounts. No visible weld joints and precision anchor stabilization.",
-    image: projectImages[0],
-  },
-  {
-    id: 2,
-    title: "Panoramic Glass Balcony System",
-    category: "Railings",
-    location: "Penthouse Apartment, Ratanada",
-    client: "Luxury Residence",
-    grade: "Duplex 2205 + SS 304 Handrail",
-    finish: "Satin Hairline Matte",
-    scope: "85 RFT Exterior Perimeter",
-    description:
-      "Frameless 12mm tempered safety glass railing engineered with solid floor spigots, weather-proof EPDM gaskets, and an ergonomic slim top capping handrail.",
-    image: projectImages[1],
-  },
-  {
-    id: 3,
-    title: "Grand Laser-Cut Estate Gate",
-    category: "Gates",
-    location: "Heritage Villa Complex",
-    client: "Private Farmhouse Estate",
-    grade: "SS 304 Box Structure + 3mm Sheet",
-    finish: "PVD Antique Bronze & Mirror SS",
-    scope: "24 ft Wide Motorized Bi-Parting Gate",
-    description:
-      "A statement entrance combining traditional Rajasthani geometric lattice laser-cutting with heavy structural steel framework and remote motorized sliding gear.",
-    image: projectImages[2],
-  },
-  {
-    id: 4,
-    title: "Architectural Safety Window Grills",
-    category: "Grills",
-    location: "Modern Duplex Villa, Pal Road",
-    client: "Residential Homeowner",
-    grade: "SS 304 Heavy Gauge Solid Rods",
-    finish: "Mirror Polish #8",
-    scope: "14 Large Window Grills (280 SQFT)",
-    description:
-      "Full perimeter safety grills fabricated with 360-degree Argon welded joints, concealed anchor brackets, and easy-clean geometric intervals.",
-    image: projectImages[3],
-  },
-  {
-    id: 5,
-    title: "Commercial Multi-Story Atrium Railing",
-    category: "Commercial",
-    location: "Corporate Business Center",
-    client: "Commercial Real Estate Developer",
-    grade: "SS 316 High Traffic Grade",
-    finish: "Brushed Hairline",
-    scope: "450 RFT across 4 Atrium Floors",
-    description:
-      "Heavy-duty commercial railing designed for high pedestrian throughput with reinforced structural posts and rigorous municipal load testing approval.",
-    image: projectImages[4],
-  },
-  {
-    id: 6,
-    title: "Contemporary Villa Entrance Pivot Gate",
-    category: "Gates",
-    location: "Umaid Heritage Enclave",
-    client: "Architectural Villa",
-    grade: "SS 304 with Teakwood Slats",
-    finish: "Matte Black PVD & Polished SS",
-    scope: "18 ft Width with Integrated Pedestrian Wicket",
-    description:
-      "Modern dual-material entry gate pairing dark PVD-coated stainless steel with weather-treated natural teakwood slats for maximum street appeal.",
-    image: projectImages[5],
-  },
-];
+import { projects, projectCategories as categories } from "../data/projects";
+import { FiAward, FiEye, FiMapPin, FiArrowRight, FiX } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -132,7 +45,8 @@ function Projects() {
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
             <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
-              <span>🏆 Proven Track Record</span>
+              <FiAward className="h-3.5 w-3.5 text-orange-600" />
+              <span>Proven Track Record</span>
             </div>
             <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
               Featured Work & <br />
@@ -199,21 +113,19 @@ function Projects() {
 
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-600 text-white shadow-lg transition duration-300 hover:scale-110 hover:bg-orange-700"
+                  className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-600 text-white shadow-lg transition duration-300 hover:scale-110 hover:bg-orange-700 active:scale-95"
                   aria-label={`Inspect ${project.title}`}
                 >
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6z" />
-                  </svg>
+                  <FiEye className="h-4 w-4" />
                 </button>
               </div>
 
               {/* Details */}
               <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-orange-700">
-                    📍 {project.location}
+                  <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-orange-700">
+                    <FiMapPin className="h-3.5 w-3.5 shrink-0" />
+                    <span>{project.location}</span>
                   </p>
 
                   <h3 className="mt-2 text-lg font-bold text-slate-900 group-hover:text-orange-600 transition">
@@ -234,19 +146,21 @@ function Projects() {
                   </div>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3.5">
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3.5">
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="text-xs font-bold text-slate-800 hover:text-orange-600 transition"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-orange-600 transition"
                   >
-                    View Project Details →
+                    <span>View Project Details</span>
+                    <FiArrowRight className="h-3.5 w-3.5" />
                   </button>
 
                   <button
                     onClick={() => handleWhatsAppProject(project)}
-                    className="rounded-lg bg-emerald-50 border border-emerald-300 px-3 py-1.5 text-xs font-bold text-emerald-700 hover:bg-emerald-100 transition shadow-sm"
+                    className="inline-flex items-center gap-1 rounded-lg bg-emerald-50 border border-emerald-300 px-3 py-1.5 text-xs font-bold text-emerald-700 hover:bg-emerald-100 transition shadow-sm active:scale-95"
                   >
-                    Similar Quote
+                    <FaWhatsapp className="h-3.5 w-3.5 text-emerald-600" />
+                    <span>Similar Quote</span>
                   </button>
                 </div>
               </div>
@@ -271,7 +185,7 @@ function Projects() {
               className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-slate-800 shadow-md hover:bg-orange-600 hover:text-white transition"
               aria-label="Close modal"
             >
-              ✕
+              <FiX className="h-5 w-5" />
             </button>
 
             <div className="grid max-h-[92vh] overflow-y-auto lg:grid-cols-12">
@@ -330,9 +244,10 @@ function Projects() {
                       handleWhatsAppProject(selectedProject);
                       setSelectedProject(null);
                     }}
-                    className="flex-1 rounded-xl bg-[#25D366] py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59]"
+                    className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59] active:scale-[0.98]"
                   >
-                    Inquire on WhatsApp
+                    <FaWhatsapp className="h-4 w-4" />
+                    <span>Inquire on WhatsApp</span>
                   </button>
                   <a
                     href="#contact"

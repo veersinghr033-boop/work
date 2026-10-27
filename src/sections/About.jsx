@@ -1,15 +1,17 @@
-import { aboutImage } from "../assets/heroImages";
+import { aboutImage } from "../data/hero";
+import { FiCheck, FiCompass, FiZap, FiShield, FiArrowRight, FiAward } from "react-icons/fi";
 
 function About() {
   return (
     <section id="about" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Top Heading */}
         <div className="mb-12 sm:mb-16 grid gap-6 lg:grid-cols-[1fr_1.8fr] lg:items-end">
           <div>
             <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
-              <span>🏭 About Ramdev Steel Industries</span>
+              <FiAward className="h-3.5 w-3.5 text-orange-600" />
+              <span>About Ramdev Steel Industries</span>
             </div>
             <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl break-words">
               Engineering Built on <br />
@@ -28,7 +30,7 @@ function About() {
 
         {/* Main Content Grid */}
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-          
+
           {/* Left Column: Visual Showcase */}
           <div className="relative min-h-[380px] sm:min-h-[480px] overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
             <img
@@ -79,7 +81,7 @@ function About() {
             <div className="grid gap-3.5 sm:grid-cols-2 pt-1">
               <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
-                  ✓
+                  <FiCheck className="h-5 w-5 stroke-[2.5]" />
                 </div>
                 <h4 className="mt-2.5 text-sm font-bold text-slate-900">Certified Prime Steel</h4>
                 <p className="mt-1 text-xs text-slate-500 leading-relaxed">
@@ -89,7 +91,7 @@ function About() {
 
               <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
-                  📐
+                  <FiCompass className="h-5 w-5" />
                 </div>
                 <h4 className="mt-2.5 text-sm font-bold text-slate-900">Optical Laser Measuring</h4>
                 <p className="mt-1 text-xs text-slate-500 leading-relaxed">
@@ -99,7 +101,7 @@ function About() {
 
               <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
-                  ⚡
+                  <FiZap className="h-5 w-5" />
                 </div>
                 <h4 className="mt-2.5 text-sm font-bold text-slate-900">Argon TIG Welds</h4>
                 <p className="mt-1 text-xs text-slate-500 leading-relaxed">
@@ -109,7 +111,7 @@ function About() {
 
               <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
-                  🛡️
+                  <FiShield className="h-5 w-5" />
                 </div>
                 <h4 className="mt-2.5 text-sm font-bold text-slate-900">15-Year Rust Warranty</h4>
                 <p className="mt-1 text-xs text-slate-500 leading-relaxed">
@@ -122,16 +124,16 @@ function About() {
             <div className="pt-2 flex flex-wrap gap-3.5 items-center">
               <a
                 href="#calculator"
-                className="rounded-xl bg-orange-600 px-6 py-3 text-xs font-bold text-white shadow-md shadow-orange-500/20 transition hover:bg-orange-700"
+                className="rounded-xl bg-orange-600 px-6 py-3 text-xs font-bold text-white shadow-md shadow-orange-500/20 transition hover:bg-orange-700 active:scale-95"
               >
                 Estimate Your Project Cost
               </a>
               <a
                 href="#projects"
-                className="text-xs font-bold text-slate-700 hover:text-orange-600 transition flex items-center gap-1.5 py-2"
+                className="text-xs font-bold text-slate-700 hover:text-orange-600 transition flex items-center gap-1.5 py-2 active:scale-95"
               >
                 <span>View Recent Installations</span>
-                <span>→</span>
+                <FiArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
 

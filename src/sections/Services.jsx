@@ -1,61 +1,5 @@
-import { serviceImages } from "../assets/serviceImages";
-
-const services = [
-  {
-    id: 1,
-    number: "01",
-    title: "SS Balcony & Stair Railings",
-    deliverables: ["304/316 Grade Steel", "Precision Core Drill Anchors", "Seamless Mirror/Satin Buff"],
-    description:
-      "Engineered stainless steel railings for residential staircases, exterior balconies, ramps, and commercial atriums with strict safety load compliance.",
-    image: serviceImages[0],
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Frameless Glass Railings",
-    deliverables: ["12mm Toughened Glass", "SS 304 Solid Base Spigots", "Slimline Aluminum Channel"],
-    description:
-      "Minimalist architectural glass railings providing uninterrupted panoramic views, optimal safety barrier, and sleek modern aesthetic.",
-    image: serviceImages[1],
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Designer Steel Gates",
-    deliverables: ["Anti-Sag Box Frame", "CNC Laser Cut Motifs", "Motorized Automation Ready"],
-    description:
-      "Grand entry gates combining high-tensile steel integrity with contemporary laser lattice designs, premium ball bearing pivots, and security deadbolts.",
-    image: serviceImages[2],
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Safety Grills & Partitions",
-    deliverables: ["Burglary-Resistant Rods", "Concealed Fastening", "Weather-Resistant Polish"],
-    description:
-      "Decorative and high-security window grills, balcony mesh frames, and interior spatial partitions tailored to modern architectural layouts.",
-    image: serviceImages[3],
-  },
-  {
-    id: 5,
-    number: "05",
-    title: "Custom Steel Fabrication",
-    deliverables: ["CAD Blueprinting", "TIG Argon Welding", "Custom Dimensions"],
-    description:
-      "Made-to-order architectural steelwork, designer furniture bases, commercial kitchen counters, and structural assemblies for villas and hotels.",
-    image: serviceImages[4],
-  },
-  {
-    id: 6,
-    number: "06",
-    title: "Site Installation & Finishing",
-    deliverables: ["Expert Fitting Team", "Chemical Anchor Fasteners", "Final Mirror Buffing"],
-    description:
-      "End-to-end on-site installation by certified fabrication technicians ensuring perfect leveling, rigid anchoring, and scratch-free handover.",
-    image: serviceImages[5],
-  },
-];
+import { services } from "../data/services";
+import { FiTool, FiCheck, FiArrowRight } from "react-icons/fi";
 
 function Services() {
   const handleServiceWhatsApp = (serviceTitle) => {
@@ -71,7 +15,8 @@ function Services() {
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
             <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
-              <span>🛠️ Our Core Capabilities</span>
+              <FiTool className="h-3.5 w-3.5 text-orange-600" />
+              <span>Our Core Capabilities</span>
             </div>
             <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
               Turnkey Steel <br />
@@ -127,23 +72,22 @@ function Services() {
                   {service.deliverables.map((item, idx) => (
                     <span
                       key={idx}
-                      className="rounded-md border border-white/10 bg-black/50 px-2 py-0.5 text-[10px] font-medium text-slate-300"
+                      className="inline-flex items-center gap-1 rounded-md border border-white/10 bg-black/50 px-2 py-0.5 text-[10px] font-medium text-slate-300"
                     >
-                      ✓ {item}
+                      <FiCheck className="text-orange-400 stroke-[3]" />
+                      <span>{item}</span>
                     </span>
                   ))}
                 </div>
 
                 {/* Direct Action */}
-                <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-3.5">
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-white/10 pt-3.5">
                   <button
                     onClick={() => handleServiceWhatsApp(service.title)}
-                    className="flex items-center gap-2 text-xs font-bold text-orange-400 hover:text-orange-300 transition py-1"
+                    className="flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 transition py-1"
                   >
                     <span>Discuss Requirements</span>
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    <FiArrowRight className="h-4 w-4" />
                   </button>
 
                   <a

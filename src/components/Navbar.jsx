@@ -1,16 +1,34 @@
 import { useState, useEffect } from "react";
+import {
+  FiHome,
+  FiZap,
+  FiGrid,
+  FiTool,
+  FiBookOpen,
+  FiAward,
+  FiRefreshCw,
+  FiStar,
+  FiHelpCircle,
+  FiMapPin,
+  FiPhone,
+  FiClock,
+  FiMenu,
+  FiX,
+  FiArrowRight,
+} from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 const navItems = [
-  { name: "Home", href: "#home", icon: "🏠" },
-  { name: "Cost Estimator", href: "#calculator", icon: "⚡", highlight: true },
-  { name: "Products", href: "#products", icon: "💎" },
-  { name: "Services", href: "#services", icon: "🛠️" },
-  { name: "Steel Guide", href: "#materials", icon: "📚" },
-  { name: "Projects", href: "#projects", icon: "🏆" },
-  { name: "Process", href: "#process", icon: "🔄" },
-  { name: "Reviews", href: "#testimonials", icon: "⭐" },
-  { name: "FAQ", href: "#faq", icon: "❓" },
-  { name: "Contact", href: "#contact", icon: "📍" },
+  { name: "Home", href: "#home", icon: FiHome },
+  { name: "Cost Estimator", href: "#calculator", icon: FiZap, highlight: true },
+  { name: "Products", href: "#products", icon: FiGrid },
+  { name: "Services", href: "#services", icon: FiTool },
+  { name: "Steel Guide", href: "#materials", icon: FiBookOpen },
+  { name: "Projects", href: "#projects", icon: FiAward },
+  { name: "Process", href: "#process", icon: FiRefreshCw },
+  { name: "Reviews", href: "#testimonials", icon: FiStar },
+  { name: "FAQ", href: "#faq", icon: FiHelpCircle },
+  { name: "Contact", href: "#contact", icon: FiMapPin },
 ];
 
 function Navbar() {
@@ -74,17 +92,12 @@ function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
           <div className="flex items-center gap-5 whitespace-nowrap">
             <span className="flex items-center gap-1.5 text-slate-700 font-medium">
-              <svg className="h-3.5 w-3.5 text-orange-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+              <FiMapPin className="h-3.5 w-3.5 text-orange-600 shrink-0" />
               Jodhpur, Rajasthan • Precision Stainless Steel Fabrication
             </span>
             <span className="h-3 w-px bg-slate-300" />
             <span className="flex items-center gap-1.5 text-slate-600">
-              <svg className="h-3.5 w-3.5 text-orange-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <FiClock className="h-3.5 w-3.5 text-orange-600 shrink-0" />
               Mon - Sat: 9:00 AM - 8:00 PM
             </span>
           </div>
@@ -94,9 +107,7 @@ function Navbar() {
               href="tel:+919468815735"
               className="flex items-center gap-1.5 font-bold text-slate-800 transition hover:text-orange-600"
             >
-              <svg className="h-3.5 w-3.5 text-orange-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h2.3a2 2 0 011.94 1.515L10 8a2 2 0 01-.5 1.94l-1.3 1.3a16 16 0 006.56 6.56l1.3-1.3A2 2 0 0118 16l3.485.76A2 2 0 0123 18.7V21a2 2 0 01-2 2C10.507 23 1 13.493 1 3a2 2 0 012-2z" />
-              </svg>
+              <FiPhone className="h-3.5 w-3.5 text-orange-600 shrink-0" />
               +91 94688 15735
             </a>
             <span className="h-3 w-px bg-slate-300" />
@@ -173,10 +184,7 @@ function Navbar() {
               className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 transition-all duration-300 hover:border-green-500 hover:bg-green-50 hover:text-green-600 shadow-sm"
               title="Chat on WhatsApp"
             >
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.35.49 1.199.533 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.087.289.13.332.202.043.073.043.419-.101.824z" />
-                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.17-1.32c1.42.79 3.05 1.24 4.83 1.24 5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.2c-1.57 0-3.03-.43-4.3-1.18l-.31-.18-3.07.78.82-2.99-.2-.32C4.15 15.17 3.7 13.63 3.7 12c0-4.58 3.72-8.3 8.3-8.3s8.3 3.72 8.3 8.3-3.72 8.3-8.3 8.3z" />
-              </svg>
+              <FaWhatsapp className="h-4 w-4 text-emerald-600" />
             </a>
 
             {/* Site Visit Button */}
@@ -196,7 +204,7 @@ function Navbar() {
               className="hidden min-[400px]:inline-flex items-center gap-1 rounded-xl border border-orange-300 bg-orange-50/90 px-2.5 py-1.5 text-[11px] font-bold text-orange-700 shadow-sm active:scale-95 shrink-0"
             >
               <span>Estimate</span>
-              <span className="text-[10px]">⚡</span>
+              <FiZap className="h-3 w-3 text-orange-600" />
             </a>
 
             {/* Prominent Hamburger / Menu Toggle Button */}
@@ -208,16 +216,12 @@ function Navbar() {
             >
               {isOpen ? (
                 <>
-                  <svg className="h-4.5 w-4.5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <FiX className="h-4.5 w-4.5 text-slate-700" />
                   <span className="text-xs font-bold">Close</span>
                 </>
               ) : (
                 <>
-                  <svg className="h-4.5 w-4.5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
+                  <FiMenu className="h-4.5 w-4.5 text-orange-600" />
                   <span className="text-xs font-bold">Menu</span>
                 </>
               )}
@@ -257,7 +261,7 @@ function Navbar() {
                   className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 active:scale-95"
                   aria-label="Close menu"
                 >
-                  ✕
+                  <FiX className="h-4 w-4" />
                 </button>
               </div>
 
@@ -265,6 +269,7 @@ function Navbar() {
               <nav className="flex flex-col gap-1 py-1">
                 {navItems.map((item) => {
                   const isActive = activeSection === item.href.substring(1);
+                  const Icon = item.icon;
                   return (
                     <a
                       key={item.name}
@@ -279,12 +284,10 @@ function Navbar() {
                       }`}
                     >
                       <span className="flex items-center gap-2.5">
-                        <span className="text-base">{item.icon}</span>
+                        <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-orange-600" : "text-slate-500"}`} />
                         <span>{item.name}</span>
                       </span>
-                      <span className={`text-xs ${isActive ? "text-orange-600 font-black" : "text-slate-400"}`}>
-                        →
-                      </span>
+                      <FiArrowRight className={`h-3.5 w-3.5 ${isActive ? "text-orange-600" : "text-slate-400"}`} />
                     </a>
                   );
                 })}
@@ -300,7 +303,7 @@ function Navbar() {
                   className="flex items-center justify-center gap-1.5 rounded-xl border border-orange-300 bg-orange-50 py-3 text-xs font-bold text-orange-700 shadow-sm active:scale-95 text-center min-h-[44px]"
                 >
                   <span>Estimate</span>
-                  <span>⚡</span>
+                  <FiZap className="h-3.5 w-3.5 text-orange-600" />
                 </a>
                 <a
                   href="#contact"
@@ -314,7 +317,9 @@ function Navbar() {
               {/* Contact direct link */}
               <div className="rounded-xl bg-slate-50 p-2.5 border border-slate-200/80 flex items-center justify-between text-xs">
                 <a href="tel:+919468815735" className="flex items-center gap-1.5 font-bold text-slate-800 hover:text-orange-600">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-orange-100 text-orange-600 text-xs">📞</span>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-orange-100 text-orange-600 text-xs">
+                    <FiPhone className="h-3 w-3" />
+                  </span>
                   <span>+91 94688 15735</span>
                 </a>
                 <span className="text-slate-300">|</span>
@@ -324,7 +329,9 @@ function Navbar() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 font-bold text-emerald-700"
                 >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 text-xs">💬</span>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 text-xs">
+                    <FaWhatsapp className="h-3 w-3" />
+                  </span>
                   <span>WhatsApp</span>
                 </a>
               </div>

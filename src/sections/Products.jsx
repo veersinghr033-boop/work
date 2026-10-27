@@ -1,119 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
-import { productImages } from "../assets/productImages";
-
-const categories = [
-  "All",
-  "Railings",
-  "Gates",
-  "Grills",
-  "Fittings",
-  "Furniture",
-];
-
-const products = [
-  {
-    id: 1,
-    name: "Modern SS Balcony Railing",
-    category: "Railings",
-    grade: "SS 304 / SS 316",
-    thickness: "1.5mm - 2.0mm Gauge",
-    description:
-      "Engineered multi-tier stainless steel railing with ergonomic top handrail and horizontal safety pipes. Designed for extreme outdoor weather.",
-    image: productImages[0],
-    tag: "Bestseller",
-    specs: {
-      height: "3.0 - 3.5 Feet Standard",
-      mount: "Core Drill / Base Flange Plate Anchor",
-      finish: "Mirror Polish / Hairline Satin",
-      warranty: "15 Years Anti-Rust Guarantee",
-    },
-  },
-  {
-    id: 2,
-    name: "Frameless SS Glass Railing",
-    category: "Railings",
-    grade: "SS 304 Solid Cast",
-    thickness: "12mm Toughened Glass",
-    description:
-      "Ultra-modern architectural glass balcony system with heavy-duty solid stainless steel spigots and continuous base channel profile.",
-    image: productImages[1],
-    tag: "Luxury",
-    specs: {
-      height: "3.2 - 4.0 Feet",
-      glass: "12mm Clear / Frosted / Tinted Toughened",
-      hardware: "Duplex 2205 / SS 304 Spigots",
-      finish: "Mirror Polish / Brushed Matt",
-    },
-  },
-  {
-    id: 3,
-    name: "CNC Laser Cut Entrance Gate",
-    category: "Gates",
-    grade: "SS 304 Prime Sheet & Box Pipes",
-    thickness: "2.0mm Frame + 3mm Sheet",
-    description:
-      "Custom-designed grand entrance gate featuring intricate CNC laser cut lattice patterns, heavy-duty ball-bearing hinges, and anti-sag structure.",
-    image: productImages[2],
-    tag: "Custom Made",
-    specs: {
-      automation: "Compatible with remote sliding / swing motors",
-      hinges: "Heavy Duty 4-bearing Stainless Hinges",
-      finish: "Satin Brush / PVD Titanium Coated",
-      security: "Integrated multi-point deadbolt mounts",
-    },
-  },
-  {
-    id: 4,
-    name: "Architectural Window Safety Grills",
-    category: "Grills",
-    grade: "SS 304 Solid & Hollow Bars",
-    thickness: "16mm - 19mm Diameter",
-    description:
-      "Elegant decorative safety grills for residential windows and balconies. Provides robust intrusion security with clean unobstructed outdoor views.",
-    image: productImages[3],
-    tag: "High Security",
-    specs: {
-      welding: "Complete 360° Argon TIG Welded Joint",
-      pattern: "Geometric / Modern Linear / Floral",
-      anchors: "Tamper-proof concealed wall anchors",
-      finish: "High Gloss Buffed Finish",
-    },
-  },
-  {
-    id: 5,
-    name: "Precision Railing Glass Fittings & Spigots",
-    category: "Fittings",
-    grade: "SS 304 / SS 316 Casted",
-    thickness: "Solid Heavy Forging",
-    description:
-      "Heavy-duty glass clamps, base spigots, handrail brackets, adjustable elbows, and end caps built for lifetime commercial and residential duty.",
-    image: productImages[4],
-    tag: "Hardware Spec",
-    specs: {
-      compatibility: "8mm, 10mm, 12mm Glass Panels",
-      gaskets: "UV Resistant EPDM Anti-Slip Rubber Gaskets",
-      standards: "ASTM A276 Certified Steel",
-      finish: "Electro-polished Mirror & Satin",
-    },
-  },
-  {
-    id: 6,
-    name: "Custom SS Architectural Furniture",
-    category: "Furniture",
-    grade: "SS 304 High Precision",
-    thickness: "1.6mm - 2.5mm",
-    description:
-      "Bespoke stainless steel dining table bases, console frames, center tables, and commercial kitchen fabrication built to designer blueprints.",
-    image: productImages[5],
-    tag: "Designer Series",
-    specs: {
-      topCompatibility: "Marble, Quartz, Granite, or Glass",
-      joints: "Seamless Invisible Grind Welds",
-      finish: "PVD Gold / Rose Gold / Mirror Polish",
-      durability: "Termite-free, 100% moisture resistant",
-    },
-  },
-];
+import { products, productCategories as categories } from "../data/products";
+import { FiSearch, FiX, FiArrowRight } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Products({ onSelectProductForQuote }) {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -213,7 +101,7 @@ function Products({ onSelectProductForQuote }) {
           </div>
 
           {/* Search Box */}
-          <div className="relative min-w-[240px] sm:w-72">
+          <div className="relative w-full sm:w-72">
             <input
               type="text"
               placeholder="Search products, grades..."
@@ -221,20 +109,14 @@ function Products({ onSelectProductForQuote }) {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full rounded-xl border border-slate-300 bg-slate-50 py-2.5 pl-9 pr-8 text-base sm:text-xs text-slate-900 placeholder-slate-400 outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-200 shadow-sm"
             />
-            <svg
-              className="absolute left-3 top-3 h-4 w-4 text-slate-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <FiSearch className="absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-2.5 text-xs text-slate-400 hover:text-slate-700"
+                className="absolute right-3 top-2.5 text-slate-400 hover:text-slate-700 p-1"
+                aria-label="Clear search"
               >
-                ×
+                <FiX className="h-3.5 w-3.5" />
               </button>
             )}
           </div>
@@ -294,15 +176,13 @@ function Products({ onSelectProductForQuote }) {
                 </div>
 
                 {/* Card Actions */}
-                <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3.5">
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3.5">
                   <button
                     onClick={() => handleWhatsAppProduct(product)}
                     className="flex items-center gap-1.5 text-xs font-bold text-emerald-600 transition hover:text-emerald-700 py-1"
                   >
+                    <FaWhatsapp className="h-4 w-4" />
                     <span>WhatsApp Quote</span>
-                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
                   </button>
 
                   <button
@@ -352,9 +232,10 @@ function Products({ onSelectProductForQuote }) {
             href="https://wa.me/919468815735"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-xl bg-orange-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-700"
+            className="shrink-0 flex items-center gap-2 rounded-xl bg-orange-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-700 active:scale-95"
           >
-            Send Custom Drawing
+            <span>Send Custom Drawing</span>
+            <FiArrowRight className="h-4 w-4" />
           </a>
         </div>
 
@@ -375,7 +256,7 @@ function Products({ onSelectProductForQuote }) {
               className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 hover:bg-orange-600 hover:text-white transition shadow-sm"
               aria-label="Close modal"
             >
-              ✕
+              <FiX className="h-5 w-5" />
             </button>
 
             <div className="grid gap-6 sm:grid-cols-2">
@@ -431,9 +312,10 @@ function Products({ onSelectProductForQuote }) {
                       handleWhatsAppProduct(selectedProduct);
                       setSelectedProduct(null);
                     }}
-                    className="flex-1 rounded-xl bg-[#25D366] py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59] active:scale-[0.98] min-h-[44px] flex items-center justify-center gap-1.5"
+                    className="flex-1 rounded-xl bg-[#25D366] py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59] active:scale-[0.98] min-h-[44px] flex items-center justify-center gap-2"
                   >
-                    <span>💬 Inquire on WhatsApp</span>
+                    <FaWhatsapp className="h-4 w-4" />
+                    <span>Inquire on WhatsApp</span>
                   </button>
                   <a
                     href="#contact"

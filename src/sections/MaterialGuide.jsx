@@ -1,76 +1,5 @@
 import { useState } from "react";
-
-const gradeComparison = [
-  {
-    grade: "SS 304",
-    title: "Architectural & Balcony Standard",
-    alloy: "18% Chromium, 8% Nickel (18/8 Steel)",
-    rustResistance: "⭐⭐⭐⭐⭐ (Exceptional)",
-    suitability: "Outdoor Balconies, Main Gates, Stairs, Commercial Railings",
-    weatherProof: "100% Rust-proof in all normal outdoor weather",
-    costRating: "Balanced Value & High Durability",
-    recommendation: "Our #1 choice for home & building exteriors. Maintenance-free for decades.",
-    isPopular: true,
-  },
-  {
-    grade: "SS 316",
-    title: "Marine & Chemical Grade",
-    alloy: "16% Chromium, 10% Nickel + 2% Molybdenum",
-    rustResistance: "⭐⭐⭐⭐⭐+ (Maximum Available)",
-    suitability: "Coastal regions, Swimming pools, Chemical & Food Pharma plants",
-    weatherProof: "Immune to saltwater chloride pitting and harsh industrial fumes",
-    costRating: "Premium Investment (+30-40% over 304)",
-    recommendation: "Essential if located near water bodies, factories, or extreme exposure.",
-    isPopular: false,
-  },
-  {
-    grade: "SS 202",
-    title: "Economical Interior Grade",
-    alloy: "14-16% Chromium, 1-2% Nickel (Manganese added)",
-    rustResistance: "⭐⭐⭐ (Moderate)",
-    suitability: "Covered indoor staircases, dry interior partitions, temporary fitouts",
-    weatherProof: "Not recommended for direct rain/exterior sunlight",
-    costRating: "Cost-Effective Budget (-25-30% from 304)",
-    recommendation: "Good for indoor dry use when budget is the top priority.",
-    isPopular: false,
-  },
-];
-
-const finishes = [
-  {
-    id: "mirror",
-    name: "High-Gloss Mirror Polish (#8)",
-    description: "Reflective chrome-like surface buffed to a lustrous shine. Easy to wipe clean and sheds dust effortlessly.",
-    bestFor: "Staircase handrails, decorative gate pillars, luxury entryways.",
-  },
-  {
-    id: "satin",
-    name: "Satin / Hairline Brushed",
-    description: "Directional fine grain texture with a non-glare, contemporary matte metallic appearance. Hides minor finger smudges.",
-    bestFor: "Modern glass railings, minimalist architectural villas, corporate lobbies.",
-  },
-  {
-    id: "pvd",
-    name: "PVD Titanium Color Coating",
-    description: "Physical Vapor Deposition coating giving permanent, scratch-resistant Royal Gold, Rose Gold, Champagne, or Matte Black.",
-    bestFor: "Boutique hotel facades, luxury villa entrance gates, designer partitions.",
-  },
-];
-
-const careTips = [
-  {
-    title: "Never Use Muriatic Acid / Harpic",
-    tip: "Common toilet cleaners contain hydrochloric acid that destroys the chromium passive oxide layer. Use mild soapy water or glass cleaner instead.",
-  },
-  {
-    title: "The Magnet Myth",
-    tip: "Cold working (bending, pressing, cutting) can induce slight magnetic attraction in genuine SS 304. The true verification is molybdenum/nickel chemical acid drop test.",
-  },
-  {
-    title: "Routine Dusting Keeps Shine",
-    tip: "Wiping with a microfiber cloth once a month prevents fine desert dust accumulation and maintains factory mirror brilliance.",
-  },
-];
+import { gradeComparison, finishes, careTips } from "../data/materials";
 
 function MaterialGuide() {
   const [activeTab, setActiveTab] = useState("grades");
@@ -99,10 +28,10 @@ function MaterialGuide() {
         </div>
 
         {/* Tab Buttons */}
-        <div className="mt-10 sm:mt-12 flex gap-2.5 border-b border-slate-200 pb-3 overflow-x-auto no-scrollbar">
+        <div className="mt-10 sm:mt-12 flex gap-2.5 border-b border-slate-200 pb-3 overflow-x-auto no-scrollbar w-full max-w-full">
           <button
             onClick={() => setActiveTab("grades")}
-            className={`whitespace-nowrap rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-sm ${
+            className={`whitespace-nowrap shrink-0 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-sm ${
               activeTab === "grades"
                 ? "bg-orange-600 text-white shadow-orange-500/20"
                 : "bg-white border border-slate-200 text-slate-700 hover:text-orange-600 hover:border-orange-300"
@@ -112,7 +41,7 @@ function MaterialGuide() {
           </button>
           <button
             onClick={() => setActiveTab("finishes")}
-            className={`whitespace-nowrap rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-sm ${
+            className={`whitespace-nowrap shrink-0 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-sm ${
               activeTab === "finishes"
                 ? "bg-orange-600 text-white shadow-orange-500/20"
                 : "bg-white border border-slate-200 text-slate-700 hover:text-orange-600 hover:border-orange-300"
@@ -122,7 +51,7 @@ function MaterialGuide() {
           </button>
           <button
             onClick={() => setActiveTab("tips")}
-            className={`whitespace-nowrap rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-sm ${
+            className={`whitespace-nowrap shrink-0 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-sm ${
               activeTab === "tips"
                 ? "bg-orange-600 text-white shadow-orange-500/20"
                 : "bg-white border border-slate-200 text-slate-700 hover:text-orange-600 hover:border-orange-300"
@@ -134,26 +63,26 @@ function MaterialGuide() {
 
         {/* Tab 1: Grades Comparison */}
         {activeTab === "grades" && (
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-3 w-full min-w-0">
             {gradeComparison.map((item) => (
               <div
                 key={item.grade}
-                className={`relative rounded-3xl border p-6 sm:p-7 flex flex-col justify-between transition duration-300 ${
+                className={`relative rounded-3xl border p-4 sm:p-7 flex flex-col justify-between transition duration-300 w-full min-w-0 overflow-hidden ${
                   item.isPopular
                     ? "border-orange-400 bg-gradient-to-b from-orange-50/80 via-white to-white shadow-lg shadow-orange-500/5 ring-1 ring-orange-400/30"
                     : "border-slate-200/90 bg-white shadow-sm hover:border-slate-300"
                 }`}
               >
                 {item.isPopular && (
-                  <span className="absolute -top-3 right-6 rounded-full bg-orange-600 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow">
+                  <span className="absolute -top-3 right-4 sm:right-6 rounded-full bg-orange-600 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow shrink-0">
                     Most Popular Choice
                   </span>
                 )}
 
                 <div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="text-2xl font-black text-slate-900">{item.grade}</h3>
-                    <span className="text-xs font-bold text-orange-700 bg-orange-100/70 px-2 py-0.5 rounded-full border border-orange-200">
+                    <span className="text-[11px] font-bold text-orange-700 bg-orange-100/70 px-2.5 py-0.5 rounded-full border border-orange-200 shrink-0">
                       {item.costRating}
                     </span>
                   </div>

@@ -1,74 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import { galleryImages as galleryImageAssets } from "../assets/galleryImages";
-
-const categories = ["All", "Railings", "Gates", "Grills", "Furniture"];
-
-const galleryImages = [
-  {
-    id: 1,
-    category: "Railings",
-    title: "Curved Staircase Balustrade",
-    image: galleryImageAssets[0],
-    size: "large",
-    tag: "Villa Interior",
-  },
-  {
-    id: 2,
-    category: "Gates",
-    title: "High-Gloss Entrance Pivot Gate",
-    image: galleryImageAssets[1],
-    size: "normal",
-    tag: "Exterior Gate",
-  },
-  {
-    id: 3,
-    category: "Grills",
-    title: "Geometric Laser Safety Grill",
-    image: galleryImageAssets[2],
-    size: "normal",
-    tag: "Window Security",
-  },
-  {
-    id: 4,
-    category: "Railings",
-    title: "Frameless Glass Balcony Edge",
-    image: galleryImageAssets[3],
-    size: "normal",
-    tag: "Terrace Railing",
-  },
-  {
-    id: 5,
-    category: "Furniture",
-    title: "Mirror SS Dining Table Framework",
-    image: galleryImageAssets[4],
-    size: "normal",
-    tag: "Bespoke Furniture",
-  },
-  {
-    id: 6,
-    category: "Gates",
-    title: "Contemporary Villa Sliding Gate",
-    image: galleryImageAssets[5],
-    size: "large",
-    tag: "Estate Boundary",
-  },
-  {
-    id: 7,
-    category: "Railings",
-    title: "SS 316 Commercial Grade Railing",
-    image: galleryImageAssets[6],
-    size: "normal",
-    tag: "Commercial Atrium",
-  },
-  {
-    id: 8,
-    category: "Grills",
-    title: "Architectural Pattern Safety Barrier",
-    image: galleryImageAssets[7],
-    size: "normal",
-    tag: "Balcony Partition",
-  },
-];
+import { galleryCategories as categories, galleryItems as galleryImages } from "../data/gallery";
+import { FiCamera, FiZoomIn, FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -163,7 +96,7 @@ function Gallery() {
         </div>
 
         {/* Filters */}
-        <div className="mt-10 sm:mt-12 flex gap-2 overflow-x-auto pb-2 sm:pb-3 no-scrollbar">
+        <div className="mt-10 sm:mt-12 flex gap-2 overflow-x-auto pb-2 sm:pb-3 no-scrollbar w-full max-w-full">
           {categories.map((category) => {
             const active = activeCategory === category;
             return (
