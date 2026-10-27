@@ -23,7 +23,7 @@ function FAQ() {
   return (
     <section id="faq" className="relative bg-slate-50 py-24 sm:py-28 lg:py-32 border-t border-slate-200/80 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
-        
+
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50 px-4 py-1 text-xs font-bold uppercase tracking-wider text-orange-700 shadow-sm">
@@ -70,11 +70,10 @@ function FAQ() {
               <button
                 key={c}
                 onClick={() => setActiveCategory(c)}
-                className={`shrink-0 rounded-xl px-3.5 py-1.5 text-xs font-bold transition shadow-sm ${
-                  activeCategory === c
+                className={`shrink-0 rounded-xl px-3.5 py-1.5 text-xs font-bold transition shadow-sm ${activeCategory === c
                     ? "bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-orange-500/20"
                     : "bg-white border border-slate-200/90 text-slate-700 hover:text-orange-600 hover:border-orange-300"
-                }`}
+                  }`}
               >
                 {c}
               </button>
@@ -89,11 +88,10 @@ function FAQ() {
             return (
               <div
                 key={faq.id}
-                className={`overflow-hidden rounded-2xl border transition duration-300 ${
-                  isOpen
+                className={`overflow-hidden rounded-2xl border transition duration-300 ${isOpen
                     ? "border-orange-300 bg-orange-50/30 shadow-md ring-1 ring-orange-200/50"
                     : "border-slate-200/90 bg-white hover:border-slate-300 shadow-sm"
-                }`}
+                  }`}
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
@@ -101,9 +99,8 @@ function FAQ() {
                 >
                   <div className="flex items-center gap-3.5">
                     <span
-                      className={`text-xs font-mono font-bold ${
-                        isOpen ? "text-orange-600" : "text-slate-400"
-                      }`}
+                      className={`text-xs font-mono font-bold ${isOpen ? "text-orange-600" : "text-slate-400"
+                        }`}
                     >
                       0{faq.id}
                     </span>
@@ -113,9 +110,8 @@ function FAQ() {
                   </div>
 
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-sm" : "bg-slate-100 text-slate-600"
-                    }`}
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ${isOpen ? "rotate-180 bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-sm" : "bg-slate-100 text-slate-600"
+                      }`}
                   >
                     ↓
                   </span>
@@ -160,7 +156,7 @@ function FAQ() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <a
-              href="https://wa.me/919468815735"
+              href="https://wa.me/918949708489"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto rounded-xl bg-[#25D366] px-6 py-3 text-xs font-bold text-white shadow-md transition hover:bg-[#20ba59]"
@@ -168,10 +164,10 @@ function FAQ() {
               Ask on WhatsApp
             </a>
             <a
-              href="tel:+919468815735"
+              href="tel:+918949708489"
               className="w-full sm:w-auto rounded-xl border border-slate-300/90 bg-white px-6 py-3 text-xs font-bold text-slate-800 transition hover:border-orange-500 hover:text-orange-600 shadow-sm"
             >
-              Call +91 94688 15735
+              Call +91 8949708489
             </a>
           </div>
         </div>

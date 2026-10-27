@@ -23,7 +23,7 @@ function FloatingActions({ onCopyPhone }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const whatsappUrl = `https://wa.me/919468815735?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/918949708489?text=${encodeURIComponent(
     "Hello Ramdev Steel Industries! I am interested in getting a quotation for stainless steel fabrication work. Please connect with me."
   )}`;
 
@@ -101,7 +101,7 @@ function FloatingActions({ onCopyPhone }) {
 
           {/* Action 1: Call Specialist */}
           <a
-            href="tel:+919468815735"
+            href="tel:+918949708489"
             className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 hover:text-orange-600 transition active:scale-95"
             aria-label="Call Now"
           >

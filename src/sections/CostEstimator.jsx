@@ -6,7 +6,7 @@ function CostEstimator({ onShowToast }) {
   const [selectedGrade, setSelectedGrade] = useState(steelGrades[0]);
   const [selectedFinish, setSelectedFinish] = useState(finishOptions[0]);
   const [quantity, setQuantity] = useState(workTypes[0].defaultQty);
-  
+
   // Add-ons
   const [hasToughenedGlass, setHasToughenedGlass] = useState(false);
   const [hasWoodenHandrail, setHasWoodenHandrail] = useState(false);
@@ -60,7 +60,7 @@ function CostEstimator({ onShowToast }) {
       `*Estimated Cost:* ₹${calculation.lowRange.toLocaleString()} - ₹${calculation.highRange.toLocaleString()}%0A%0A` +
       `Please provide the final quotation and site measurement schedule.`;
 
-    window.open(`https://wa.me/919468815735?text=${message}`, "_blank");
+    window.open(`https://wa.me/918949708489?text=${message}`, "_blank");
   };
 
   const handleCopyQuote = () => {
@@ -93,7 +93,7 @@ Call: +91 94688 15735`;
   return (
     <section id="calculator" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-y border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
@@ -114,10 +114,10 @@ Call: +91 94688 15735`;
         {/* Main Estimator Card */}
         <div className="mt-10 sm:mt-14 rounded-3xl border border-slate-200/90 bg-white p-3.5 xs:p-4.5 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/50 w-full max-w-full overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-10 w-full min-w-0">
-            
+
             {/* Left Options Configurator */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-7 w-full min-w-0">
-              
+
               {/* Step 1: Work Type */}
               <div className="w-full min-w-0">
                 <label className="text-xs font-bold uppercase tracking-wider text-orange-700">
@@ -131,11 +131,10 @@ Call: +91 94688 15735`;
                         key={type.id}
                         type="button"
                         onClick={() => handleTypeChange(type)}
-                        className={`relative rounded-2xl border p-3.5 sm:p-4 text-left transition-all w-full min-w-0 overflow-hidden ${
-                          isSelected
+                        className={`relative rounded-2xl border p-3.5 sm:p-4 text-left transition-all w-full min-w-0 overflow-hidden ${isSelected
                             ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
                             : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
-                        }`}
+                          }`}
                       >
                         {type.popular && (
                           <span className="absolute right-2.5 top-2.5 sm:right-3 sm:top-3 rounded-full bg-orange-100 px-2 py-0.5 text-[9px] font-bold text-orange-800 uppercase border border-orange-200 shrink-0">
@@ -163,11 +162,10 @@ Call: +91 94688 15735`;
                         key={grade.id}
                         type="button"
                         onClick={() => setSelectedGrade(grade)}
-                        className={`rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${
-                          isSelected
+                        className={`rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${isSelected
                             ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
                             : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
-                        }`}
+                          }`}
                       >
                         <span className="text-sm font-bold text-slate-900 block break-words">{grade.name}</span>
                         <span className="mt-1 inline-block text-[10px] font-bold text-orange-700 bg-orange-100/70 px-2 py-0.5 rounded-full border border-orange-200">
@@ -193,11 +191,10 @@ Call: +91 94688 15735`;
                         key={finish.id}
                         type="button"
                         onClick={() => setSelectedFinish(finish)}
-                        className={`flex items-center justify-between gap-2 rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${
-                          isSelected
+                        className={`flex items-center justify-between gap-2 rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${isSelected
                             ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
                             : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
-                        }`}
+                          }`}
                       >
                         <div className="min-w-0 flex-1">
                           <p className="text-xs font-bold text-slate-900 break-words">{finish.name}</p>
@@ -233,11 +230,10 @@ Call: +91 94688 15735`;
                       key={preset}
                       type="button"
                       onClick={() => setQuantity(preset)}
-                      className={`rounded-xl px-3 py-1.5 text-xs font-bold transition whitespace-nowrap min-h-[36px] flex items-center shrink-0 ${
-                        quantity === preset
+                      className={`rounded-xl px-3 py-1.5 text-xs font-bold transition whitespace-nowrap min-h-[36px] flex items-center shrink-0 ${quantity === preset
                           ? "bg-orange-600 text-white shadow-sm ring-1 ring-orange-600"
                           : "bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800"
-                      }`}
+                        }`}
                     >
                       {preset} {selectedType.unit.split(" ")[0]}
                     </button>
@@ -293,11 +289,10 @@ Call: +91 94688 15735`;
                   <button
                     type="button"
                     onClick={() => setHasToughenedGlass(!hasToughenedGlass)}
-                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${
-                      hasToughenedGlass
+                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${hasToughenedGlass
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
-                    }`}
+                      }`}
                   >
                     <span>{hasToughenedGlass ? "✓" : "+"}</span>
                     <span className="break-words">12mm Toughened Glass</span>
@@ -306,11 +301,10 @@ Call: +91 94688 15735`;
                   <button
                     type="button"
                     onClick={() => setHasWoodenHandrail(!hasWoodenHandrail)}
-                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${
-                      hasWoodenHandrail
+                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${hasWoodenHandrail
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
-                    }`}
+                      }`}
                   >
                     <span>{hasWoodenHandrail ? "✓" : "+"}</span>
                     <span className="break-words">Teakwood Handrail Grip</span>
@@ -319,11 +313,10 @@ Call: +91 94688 15735`;
                   <button
                     type="button"
                     onClick={() => setHasLaserCutPattern(!hasLaserCutPattern)}
-                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${
-                      hasLaserCutPattern
+                    className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${hasLaserCutPattern
                         ? "border-orange-500 bg-orange-600 text-white shadow-sm"
                         : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
-                    }`}
+                      }`}
                   >
                     <span>{hasLaserCutPattern ? "✓" : "+"}</span>
                     <span className="break-words">CNC Laser Cut Design</span>
@@ -336,7 +329,7 @@ Call: +91 94688 15735`;
             {/* Right Live Estimate Summary */}
             <div className="lg:col-span-5 w-full min-w-0">
               <div className="sticky top-28 rounded-3xl border border-orange-200/90 bg-gradient-to-b from-orange-50/90 via-white to-white p-4 sm:p-7 lg:p-8 shadow-xl shadow-orange-500/5 w-full min-w-0 overflow-hidden">
-                
+
                 <div className="flex items-center justify-between border-b border-orange-100 pb-3.5 gap-2">
                   <span className="text-xs font-bold uppercase tracking-widest text-slate-500 truncate">
                     Live Estimate Summary

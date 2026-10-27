@@ -68,13 +68,13 @@ function Gallery() {
 
   const handleInquireWhatsApp = (img) => {
     const text = `Hello Ramdev Steel! I am interested in this design from your gallery: *"${img.title}"* (${img.category}). Can you share specs and quote?`;
-    window.open(`https://wa.me/919468815735?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/918949708489?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
     <section id="gallery" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
@@ -106,11 +106,10 @@ function Gallery() {
                   setActiveCategory(category);
                   setSelectedIndex(null);
                 }}
-                className={`rounded-xl border px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold transition whitespace-nowrap shadow-sm ${
-                  active
+                className={`rounded-xl border px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold transition whitespace-nowrap shadow-sm ${active
                     ? "border-orange-500 bg-orange-600 text-white shadow-orange-500/20"
                     : "border-slate-200/90 bg-white text-slate-700 hover:border-orange-300 hover:text-orange-600"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -124,9 +123,8 @@ function Gallery() {
             <div
               key={item.id}
               onClick={() => setSelectedIndex(index)}
-              className={`group relative cursor-pointer overflow-hidden rounded-3xl bg-slate-100 border border-slate-200/90 shadow-sm transition hover:shadow-xl hover:border-orange-400 ${
-                item.size === "large" ? "sm:col-span-2 lg:col-span-2" : ""
-              }`}
+              className={`group relative cursor-pointer overflow-hidden rounded-3xl bg-slate-100 border border-slate-200/90 shadow-sm transition hover:shadow-xl hover:border-orange-400 ${item.size === "large" ? "sm:col-span-2 lg:col-span-2" : ""
+                }`}
             >
               <div className={item.size === "large" ? "h-[320px] sm:h-[380px]" : "h-[260px] sm:h-[290px]"}>
                 <img

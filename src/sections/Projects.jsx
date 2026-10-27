@@ -34,13 +34,13 @@ function Projects() {
 
   const handleWhatsAppProject = (project) => {
     const text = `Hello Ramdev Steel! I love your project *"${project.title}"* (${project.location}). I have a similar requirement. Can you provide an estimate?`;
-    window.open(`https://wa.me/919468815735?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/918949708489?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
     <section id="projects" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
@@ -75,11 +75,10 @@ function Projects() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`flex items-center gap-1.5 whitespace-nowrap rounded-xl border px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold transition shadow-sm ${
-                  active
+                className={`flex items-center gap-1.5 whitespace-nowrap rounded-xl border px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold transition shadow-sm ${active
                     ? "border-orange-500 bg-orange-600 text-white shadow-orange-500/25"
                     : "border-slate-200/90 bg-slate-50 text-slate-700 hover:border-orange-300 hover:text-orange-600 hover:bg-white"
-                }`}
+                  }`}
               >
                 <span>{category}</span>
                 <span className={`rounded-full px-1.5 py-0.2 text-[10px] ${active ? "bg-black/25 text-white" : "bg-slate-200 text-slate-700"}`}>

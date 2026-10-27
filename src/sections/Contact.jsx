@@ -63,13 +63,13 @@ function Contact({ prefilledProduct = "", onShowToast }) {
       `*Site Visit Requested:* ${needsSiteVisit ? "Yes, please visit site" : "Not yet"}%0A` +
       `*Details:* ${formData.message || "Please share quotation"}`;
 
-    window.open(`https://wa.me/919468815735?text=${text}`, "_blank");
+    window.open(`https://wa.me/918949708489?text=${text}`, "_blank");
   };
 
   return (
     <section id="contact" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
@@ -93,10 +93,10 @@ function Contact({ prefilledProduct = "", onShowToast }) {
 
         {/* Contact Layout */}
         <div className="mt-12 sm:mt-16 grid gap-8 lg:grid-cols-12 w-full min-w-0 max-w-full">
-          
+
           {/* Left Column: Direct Info Cards */}
           <div className="lg:col-span-5 space-y-4 w-full min-w-0 max-w-full">
-            
+
             <div className="rounded-3xl border border-slate-200/90 bg-slate-50/80 p-4 xs:p-4.5 sm:p-7 shadow-md shadow-slate-200/50 w-full min-w-0 max-w-full overflow-hidden">
               <span className="text-xs font-bold uppercase tracking-widest text-orange-700">
                 Direct Contact Hub
@@ -110,18 +110,18 @@ function Contact({ prefilledProduct = "", onShowToast }) {
 
               {/* Phone Card */}
               <div className="mt-5 flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4 transition hover:border-orange-400 shadow-sm w-full min-w-0">
-                <a href="tel:+919468815735" className="flex items-center gap-3 min-w-0 flex-1">
+                <a href="tel:+918949708489" className="flex items-center gap-3 min-w-0 flex-1">
                   <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
                     <FiPhoneCall className="h-5 w-5" />
                   </div>
                   <div className="min-w-0">
                     <span className="text-[10px] uppercase font-bold text-slate-400 block">Call Us Anytime</span>
-                    <p className="text-xs sm:text-sm font-bold text-slate-900 truncate">+91 94688 15735</p>
+                    <p className="text-xs sm:text-sm font-bold text-slate-900 truncate">+91 8949708489</p>
                   </div>
                 </a>
 
                 <button
-                  onClick={() => handleCopy("+919468815735", "Phone number")}
+                  onClick={() => handleCopy("+918949708489", "Phone number")}
                   className="rounded-lg bg-slate-100 p-2.5 text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition shrink-0 ml-2"
                   title="Copy Phone"
                 >
@@ -131,7 +131,7 @@ function Contact({ prefilledProduct = "", onShowToast }) {
 
               {/* WhatsApp Action Card */}
               <a
-                href="https://wa.me/919468815735?text=Hello%20Ramdev%20Steel!%20I%20am%20looking%20for%20a%20stainless%20steel%20fabrication%20quote."
+                href="https://wa.me/918949708489?text=Hello%20Ramdev%20Steel!%20I%20am%20looking%20for%20a%20stainless%20steel%20fabrication%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 flex items-center justify-between gap-2 rounded-2xl border border-emerald-300 bg-emerald-50/70 p-3.5 sm:p-4 transition hover:bg-emerald-100/70 shadow-sm w-full min-w-0"
@@ -217,7 +217,7 @@ function Contact({ prefilledProduct = "", onShowToast }) {
           {/* Right Column: Quotation Form */}
           <div className="lg:col-span-7 w-full min-w-0 max-w-full">
             <div className="rounded-3xl border border-slate-200/90 bg-white p-4 xs:p-5 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/50 w-full min-w-0 max-w-full overflow-hidden">
-              
+
               {!submitted ? (
                 <>
                   <div className="border-b border-slate-200 pb-5">
@@ -233,7 +233,7 @@ function Contact({ prefilledProduct = "", onShowToast }) {
                   </div>
 
                   <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                    
+
                     {/* Name + Phone */}
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>

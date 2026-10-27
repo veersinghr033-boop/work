@@ -97,7 +97,7 @@ function Hero() {
                 </a>
 
                 <a
-                  href="https://wa.me/919468815735"
+                  href="https://wa.me/918949708489"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-1.5 sm:gap-2 rounded-2xl border border-emerald-300 bg-emerald-50 px-3.5 sm:px-5 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-emerald-800 transition hover:bg-emerald-100 shadow-sm active:scale-[0.98]"
@@ -194,7 +194,7 @@ function Hero() {
                   <p className="text-xs font-bold text-slate-900">Instant engineering quote</p>
                 </div>
                 <a
-                  href="https://wa.me/919468815735"
+                  href="https://wa.me/918949708489"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-xl bg-orange-500 px-4 py-2 text-xs font-bold text-white hover:bg-orange-600 transition shadow-sm"

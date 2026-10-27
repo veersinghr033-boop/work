@@ -85,9 +85,8 @@ function Navbar() {
     <header className="fixed top-0 left-0 z-50 w-full transition-all duration-300">
       {/* Top Utility Ribbon (Desktop only) */}
       <div
-        className={`hidden lg:block border-b border-slate-200/90 bg-slate-50/95 text-xs text-slate-600 transition-all duration-300 ${
-          scrolled ? "h-0 overflow-hidden py-0 opacity-0" : "py-2 opacity-100"
-        }`}
+        className={`hidden lg:block border-b border-slate-200/90 bg-slate-50/95 text-xs text-slate-600 transition-all duration-300 ${scrolled ? "h-0 overflow-hidden py-0 opacity-0" : "py-2 opacity-100"
+          }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
           <div className="flex items-center gap-5 whitespace-nowrap">
@@ -104,11 +103,11 @@ function Navbar() {
 
           <div className="flex items-center gap-5 whitespace-nowrap">
             <a
-              href="tel:+919468815735"
+              href="tel:+918949708489"
               className="flex items-center gap-1.5 font-bold text-slate-800 transition hover:text-orange-600"
             >
               <FiPhone className="h-3.5 w-3.5 text-orange-600 shrink-0" />
-              +91 94688 15735
+              +91 8949708489
             </a>
             <span className="h-3 w-px bg-slate-300" />
             <a href="mailto:info@ramdevsteel.com" className="font-medium text-slate-600 transition hover:text-orange-600">
@@ -120,14 +119,13 @@ function Navbar() {
 
       {/* Main Navbar */}
       <div
-        className={`border-b transition-all duration-300 ${
-          scrolled
-            ? "border-slate-200/90 bg-white/95 shadow-sm backdrop-blur-md py-2.5 sm:py-3"
-            : "border-slate-200/70 bg-white/90 backdrop-blur-md py-3 sm:py-3.5"
-        }`}
+        className={`border-b transition-all duration-300 ${scrolled
+          ? "border-slate-200/90 bg-white/95 shadow-sm backdrop-blur-md py-2.5 sm:py-3"
+          : "border-slate-200/70 bg-white/90 backdrop-blur-md py-3 sm:py-3.5"
+          }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-3.5 sm:px-6 lg:px-8">
-          
+
           {/* Brand Logo */}
           <a href="#home" className="group flex items-center gap-2 sm:gap-3 min-w-0 shrink">
             <div className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 via-orange-600 to-amber-600 shadow-md shadow-orange-500/20 transition-transform duration-300 group-hover:scale-105 shrink-0">
@@ -157,13 +155,12 @@ function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`relative flex items-center h-9 whitespace-nowrap rounded-xl px-2.5 xl:px-3 text-xs xl:text-[13px] font-semibold tracking-wide transition-all duration-200 ${
-                    item.highlight
-                      ? "text-orange-700 bg-orange-50/90 font-bold border border-orange-200/80 hover:bg-orange-100"
-                      : isActive
+                  className={`relative flex items-center h-9 whitespace-nowrap rounded-xl px-2.5 xl:px-3 text-xs xl:text-[13px] font-semibold tracking-wide transition-all duration-200 ${item.highlight
+                    ? "text-orange-700 bg-orange-50/90 font-bold border border-orange-200/80 hover:bg-orange-100"
+                    : isActive
                       ? "text-orange-600 bg-orange-50/80 font-bold"
                       : "text-slate-700 hover:text-orange-600 hover:bg-slate-100/70"
-                  }`}
+                    }`}
                 >
                   {item.name}
                   {isActive && !item.highlight && (
@@ -178,7 +175,7 @@ function Navbar() {
           <div className="hidden items-center gap-2.5 lg:flex shrink-0">
             {/* WhatsApp Quick Button */}
             <a
-              href="https://wa.me/919468815735"
+              href="https://wa.me/918949708489"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 transition-all duration-300 hover:border-green-500 hover:bg-green-50 hover:text-green-600 shadow-sm"
@@ -275,13 +272,12 @@ function Navbar() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold transition active:scale-[0.99] min-h-[44px] ${
-                        isActive
-                          ? "bg-orange-50 text-orange-600 border border-orange-200/90 shadow-sm"
-                          : item.highlight
+                      className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold transition active:scale-[0.99] min-h-[44px] ${isActive
+                        ? "bg-orange-50 text-orange-600 border border-orange-200/90 shadow-sm"
+                        : item.highlight
                           ? "bg-gradient-to-r from-amber-50 to-orange-50 text-amber-900 border border-amber-200/80"
                           : "text-slate-800 hover:bg-slate-50 hover:text-orange-600"
-                      }`}
+                        }`}
                     >
                       <span className="flex items-center gap-2.5">
                         <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-orange-600" : "text-slate-500"}`} />
@@ -316,15 +312,15 @@ function Navbar() {
 
               {/* Contact direct link */}
               <div className="rounded-xl bg-slate-50 p-2.5 border border-slate-200/80 flex items-center justify-between text-xs">
-                <a href="tel:+919468815735" className="flex items-center gap-1.5 font-bold text-slate-800 hover:text-orange-600">
+                <a href="tel:+918949708489" className="flex items-center gap-1.5 font-bold text-slate-800 hover:text-orange-600">
                   <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-orange-100 text-orange-600 text-xs">
                     <FiPhone className="h-3 w-3" />
                   </span>
-                  <span>+91 94688 15735</span>
+                  <span>+91 89497 08489</span>
                 </a>
                 <span className="text-slate-300">|</span>
                 <a
-                  href="https://wa.me/919468815735"
+                  href="https://wa.me/918949708489"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 font-bold text-emerald-700"

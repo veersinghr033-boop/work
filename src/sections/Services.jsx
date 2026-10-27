@@ -4,13 +4,13 @@ import { FiTool, FiCheck, FiArrowRight } from "react-icons/fi";
 function Services() {
   const handleServiceWhatsApp = (serviceTitle) => {
     const text = `Hello Ramdev Steel! I want to discuss a project for *${serviceTitle}*. Please connect with me.`;
-    window.open(`https://wa.me/919468815735?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/918949708489?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
     <section id="services" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
@@ -126,7 +126,7 @@ function Services() {
                 Inquire For Bulk Projects
               </a>
               <a
-                href="tel:+919468815735"
+                href="tel:+918949708489"
                 className="rounded-xl border border-slate-300 bg-white px-5 py-3.5 text-xs font-bold text-slate-800 transition hover:border-orange-500 hover:text-orange-600 shadow-sm text-center"
               >
                 Call Project Head

@@ -7,9 +7,8 @@ function StarRating({ rating }) {
       {Array.from({ length: 5 }).map((_, index) => (
         <svg
           key={index}
-          className={`h-4 w-4 ${
-            index < rating ? "fill-orange-500 text-orange-500" : "fill-zinc-300 text-zinc-300"
-          }`}
+          className={`h-4 w-4 ${index < rating ? "fill-orange-500 text-orange-500" : "fill-zinc-300 text-zinc-300"
+            }`}
           viewBox="0 0 20 20"
         >
           <path d="M10 1.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L10 14.8l-5.25 2.8 1-5.8L1.5 7.7l5.9-.9L10 1.5z" />
@@ -26,7 +25,7 @@ function Testimonials() {
   return (
     <section id="testimonials" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
           <div>
@@ -50,7 +49,7 @@ function Testimonials() {
         {/* Featured Testimonial Hero Box */}
         <div className="mt-12 sm:mt-16 overflow-hidden rounded-3xl border border-slate-200/90 bg-slate-50 shadow-xl shadow-slate-200/50">
           <div className="grid lg:grid-cols-[1.3fr_0.7fr]">
-            
+
             {/* Left Quote Card */}
             <div className="relative p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
               <div>
@@ -137,17 +136,15 @@ function Testimonials() {
             <button
               key={t.id}
               onClick={() => setActive(idx)}
-              className={`rounded-2xl border p-3.5 sm:p-4 text-left transition shadow-sm ${
-                active === idx
+              className={`rounded-2xl border p-3.5 sm:p-4 text-left transition shadow-sm ${active === idx
                   ? "border-orange-500 bg-orange-50/90 shadow-md ring-1 ring-orange-400/30"
                   : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
-              }`}
+                }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className={`flex h-9 w-9 items-center justify-center rounded-xl text-xs font-bold ${
-                    active === idx ? "bg-orange-600 text-white" : "bg-slate-100 text-slate-700"
-                  }`}>
+                  <div className={`flex h-9 w-9 items-center justify-center rounded-xl text-xs font-bold ${active === idx ? "bg-orange-600 text-white" : "bg-slate-100 text-slate-700"
+                    }`}>
                     {t.initials}
                   </div>
                   <div>

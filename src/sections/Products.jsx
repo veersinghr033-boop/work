@@ -41,13 +41,13 @@ function Products({ onSelectProductForQuote }) {
 
   const handleWhatsAppProduct = (product) => {
     const text = `Hello Ramdev Steel! I am interested in *${product.name}* (${product.category}). Please share catalog options, grade specifications, and pricing.`;
-    window.open(`https://wa.me/919468815735?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/918949708489?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
     <section id="products" className="relative bg-white py-20 sm:py-28 lg:py-32 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end">
           <div>
@@ -71,7 +71,7 @@ function Products({ onSelectProductForQuote }) {
 
         {/* Search & Filter Controls */}
         <div className="mt-10 sm:mt-12 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between">
-          
+
           {/* Categories */}
           <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
             {categories.map((category) => {
@@ -85,11 +85,10 @@ function Products({ onSelectProductForQuote }) {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`flex items-center gap-1.5 whitespace-nowrap rounded-xl border px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold transition shadow-sm ${
-                    isActive
+                  className={`flex items-center gap-1.5 whitespace-nowrap rounded-xl border px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold transition shadow-sm ${isActive
                       ? "border-orange-500 bg-orange-600 text-white shadow-orange-500/25"
                       : "border-slate-200/90 bg-slate-50 text-slate-700 hover:border-orange-300 hover:text-orange-600 hover:bg-white"
-                  }`}
+                    }`}
                 >
                   <span>{category}</span>
                   <span className={`rounded-full px-1.5 py-0.2 text-[10px] ${isActive ? "bg-black/25 text-white" : "bg-slate-200 text-slate-700"}`}>
@@ -229,7 +228,7 @@ function Products({ onSelectProductForQuote }) {
           </div>
 
           <a
-            href="https://wa.me/919468815735"
+            href="https://wa.me/918949708489"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 flex items-center gap-2 rounded-xl bg-orange-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-700 active:scale-95"
