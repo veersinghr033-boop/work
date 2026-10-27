@@ -7,7 +7,6 @@ function CostEstimator({ onShowToast }) {
   const [selectedFinish, setSelectedFinish] = useState(finishOptions[0]);
   const [quantity, setQuantity] = useState(workTypes[0].defaultQty);
 
-  // Add-ons
   const [hasToughenedGlass, setHasToughenedGlass] = useState(false);
   const [hasWoodenHandrail, setHasWoodenHandrail] = useState(false);
   const [hasLaserCutPattern, setHasLaserCutPattern] = useState(false);
@@ -132,8 +131,8 @@ Call: +91 94688 15735`;
                         type="button"
                         onClick={() => handleTypeChange(type)}
                         className={`relative rounded-2xl border p-3.5 sm:p-4 text-left transition-all w-full min-w-0 overflow-hidden ${isSelected
-                            ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
-                            : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
+                          ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
+                          : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
                           }`}
                       >
                         {type.popular && (
@@ -163,8 +162,8 @@ Call: +91 94688 15735`;
                         type="button"
                         onClick={() => setSelectedGrade(grade)}
                         className={`rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${isSelected
-                            ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
-                            : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
+                          ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
+                          : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
                           }`}
                       >
                         <span className="text-sm font-bold text-slate-900 block break-words">{grade.name}</span>
@@ -192,8 +191,8 @@ Call: +91 94688 15735`;
                         type="button"
                         onClick={() => setSelectedFinish(finish)}
                         className={`flex items-center justify-between gap-2 rounded-2xl border p-3.5 text-left transition-all w-full min-w-0 overflow-hidden ${isSelected
-                            ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
-                            : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
+                          ? "border-orange-500 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50/80 shadow-md ring-1 ring-orange-500/30"
+                          : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
                           }`}
                       >
                         <div className="min-w-0 flex-1">
@@ -231,8 +230,8 @@ Call: +91 94688 15735`;
                       type="button"
                       onClick={() => setQuantity(preset)}
                       className={`rounded-xl px-3 py-1.5 text-xs font-bold transition whitespace-nowrap min-h-[36px] flex items-center shrink-0 ${quantity === preset
-                          ? "bg-orange-600 text-white shadow-sm ring-1 ring-orange-600"
-                          : "bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800"
+                        ? "bg-orange-600 text-white shadow-sm ring-1 ring-orange-600"
+                        : "bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800"
                         }`}
                     >
                       {preset} {selectedType.unit.split(" ")[0]}
@@ -290,8 +289,8 @@ Call: +91 94688 15735`;
                     type="button"
                     onClick={() => setHasToughenedGlass(!hasToughenedGlass)}
                     className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${hasToughenedGlass
-                        ? "border-orange-500 bg-orange-600 text-white shadow-sm"
-                        : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                      ? "border-orange-500 bg-orange-600 text-white shadow-sm"
+                      : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                       }`}
                   >
                     <span>{hasToughenedGlass ? "✓" : "+"}</span>
@@ -302,8 +301,8 @@ Call: +91 94688 15735`;
                     type="button"
                     onClick={() => setHasWoodenHandrail(!hasWoodenHandrail)}
                     className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${hasWoodenHandrail
-                        ? "border-orange-500 bg-orange-600 text-white shadow-sm"
-                        : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                      ? "border-orange-500 bg-orange-600 text-white shadow-sm"
+                      : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                       }`}
                   >
                     <span>{hasWoodenHandrail ? "✓" : "+"}</span>
@@ -314,8 +313,8 @@ Call: +91 94688 15735`;
                     type="button"
                     onClick={() => setHasLaserCutPattern(!hasLaserCutPattern)}
                     className={`rounded-xl border px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs font-semibold transition min-h-[40px] flex items-center gap-1.5 max-w-full ${hasLaserCutPattern
-                        ? "border-orange-500 bg-orange-600 text-white shadow-sm"
-                        : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                      ? "border-orange-500 bg-orange-600 text-white shadow-sm"
+                      : "border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                       }`}
                   >
                     <span>{hasLaserCutPattern ? "✓" : "+"}</span>
