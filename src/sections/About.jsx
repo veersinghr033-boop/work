@@ -1,19 +1,20 @@
 import { aboutImage } from "../data/hero";
 import { FiCheck, FiCompass, FiZap, FiShield, FiArrowRight, FiAward } from "react-icons/fi";
+import AnimatedCounter from "../components/AnimatedCounter";
 
 function About() {
   return (
-    <section id="about" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="about" className="relative bg-slate-50 py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Top Heading */}
-        <div className="mb-12 sm:mb-16 grid gap-6 lg:grid-cols-[1fr_1.8fr] lg:items-end">
+        <div className="mb-8 sm:mb-10 grid gap-6 lg:grid-cols-[1fr_1.8fr] lg:items-end reveal" data-aos="fade-up">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <FiAward className="h-3.5 w-3.5 text-orange-600" />
               <span>About Ramdev Steel Industries</span>
             </div>
-            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl break-words">
+            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl break-words">
               Engineering Built on <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Integrity & Quality.
@@ -32,7 +33,7 @@ function About() {
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
 
           {/* Left Column: Visual Showcase */}
-          <div className="relative min-h-[380px] sm:min-h-[480px] overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
+          <div className="relative min-h-[380px] sm:min-h-[480px] overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50 reveal-scale" data-aos="fade-right" data-aos-delay="100">
             <img
               src={aboutImage}
               alt="Steel fabrication craftsman at work"
@@ -44,7 +45,9 @@ function About() {
             {/* Experience Card Overlay */}
             <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 flex items-center justify-between rounded-2xl border border-white/20 bg-white/95 p-3 sm:p-6 backdrop-blur-md shadow-2xl">
               <div className="min-w-0 pr-2">
-                <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">20+</p>
+                <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
+                  <AnimatedCounter end={20} suffix="+" />
+                </p>
                 <p className="text-[9px] xs:text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-orange-700 leading-tight">
                   Years Mastery
                 </p>
@@ -53,7 +56,9 @@ function About() {
               <div className="h-8 sm:h-9 w-px bg-slate-200 shrink-0" />
 
               <div className="min-w-0 pl-2">
-                <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">500+</p>
+                <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">
+                  <AnimatedCounter end={500} suffix="+" />
+                </p>
                 <p className="text-[9px] xs:text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-600 leading-tight">
                   Architectural Deliveries
                 </p>
@@ -62,7 +67,7 @@ function About() {
           </div>
 
           {/* Right Column: Values & Core Pillars */}
-          <div className="flex flex-col justify-center space-y-6">
+          <div className="flex flex-col justify-center space-y-6 reveal delay-100" data-aos="fade-left" data-aos-delay="200">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-orange-700">
                 Precision Standards

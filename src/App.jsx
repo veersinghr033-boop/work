@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
 import FloatingActions from "./components/FloatingActions";
 import Toast from "./components/Toast";
@@ -30,6 +32,44 @@ function App() {
     setSelectedProductForQuote(productName);
     showToast(`Added "${productName}" to enquiry form!`);
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 750,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+      disable: "mobile" ? false : false,
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    const observeElements = () => {
+      const elements = document.querySelectorAll(".reveal, .reveal-scale");
+      elements.forEach((el) => observer.observe(el));
+      AOS.refresh();
+    };
+
+    observeElements();
+    const timeout = setTimeout(observeElements, 500);
+
+    return () => {
+      clearTimeout(timeout);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col pb-16 lg:pb-0 w-full max-w-full overflow-x-hidden relative">

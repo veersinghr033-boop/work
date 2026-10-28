@@ -5,16 +5,16 @@ function MaterialGuide() {
   const [activeTab, setActiveTab] = useState("grades");
 
   return (
-    <section id="materials" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="materials" className="relative bg-slate-50 py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end reveal">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <span>📚 Buyer's Knowledge Base</span>
             </div>
-            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
               Steel Grade &{" "}
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Finish Guide
@@ -28,7 +28,7 @@ function MaterialGuide() {
         </div>
 
         {/* Tab Buttons */}
-        <div className="mt-10 sm:mt-12 flex gap-2.5 border-b border-slate-200 pb-3 overflow-x-auto no-scrollbar w-full max-w-full">
+        <div className="mt-7 sm:mt-9 flex gap-2.5 border-b border-slate-200 pb-3 overflow-x-auto no-scrollbar w-full max-w-full">
           <button
             onClick={() => setActiveTab("grades")}
             className={`whitespace-nowrap shrink-0 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-sm ${activeTab === "grades"
@@ -60,17 +60,17 @@ function MaterialGuide() {
 
         {/* Tab 1: Grades Comparison */}
         {activeTab === "grades" && (
-          <div className="mt-8 grid gap-6 md:grid-cols-3 w-full min-w-0">
+          <div className="mt-8 grid gap-6 md:grid-cols-3 w-full min-w-0 reveal-scale delay-100">
             {gradeComparison.map((item) => (
               <div
                 key={item.grade}
-                className={`relative rounded-3xl border p-4 sm:p-7 flex flex-col justify-between transition duration-300 w-full min-w-0 overflow-hidden ${item.isPopular
+                className={`relative rounded-3xl border p-4 sm:p-7 flex flex-col justify-between transition duration-300 w-full min-w-0 hover:-translate-y-1 hover:shadow-lg ${item.isPopular
                     ? "border-orange-400 bg-gradient-to-b from-orange-50/80 via-white to-white shadow-lg shadow-orange-500/5 ring-1 ring-orange-400/30"
                     : "border-slate-200/90 bg-white shadow-sm hover:border-slate-300"
                   }`}
               >
                 {item.isPopular && (
-                  <span className="absolute -top-3 right-4 sm:right-6 rounded-full bg-orange-600 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow shrink-0">
+                  <span className="absolute -top-3 right-4 sm:right-6 rounded-full bg-orange-600 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md shrink-0 z-10 animate-soft-ring">
                     Most Popular Choice
                   </span>
                 )}

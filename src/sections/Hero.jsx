@@ -1,12 +1,13 @@
 import { heroImage } from "../data/hero";
 import { FiCheck, FiArrowRight } from "react-icons/fi";
 import { FaWhatsapp, FaCalculator, FaStar } from "react-icons/fa";
+import AnimatedCounter from "../components/AnimatedCounter";
 
 function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] sm:min-h-screen overflow-hidden bg-slate-50 pt-24 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 flex items-center w-full max-w-full"
+      className="relative overflow-hidden bg-slate-50 pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-16 flex items-center w-full max-w-full"
     >
       {/* Background Architectural Steel Image */}
       <div
@@ -30,10 +31,10 @@ function Hero() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
 
           {/* Left Column: Headline & Action CTAs */}
-          <div className="lg:col-span-7 xl:col-span-8">
+          <div className="lg:col-span-7 xl:col-span-8" data-aos="fade-up" data-aos-duration="750">
 
-            {/* Trust Pill */}
-            <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50/90 px-3 py-1.5 sm:px-3.5 shadow-sm">
+            {/* Trust Pill with gentle float */}
+            <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50/90 px-3 py-1.5 sm:px-3.5 shadow-sm animate-float">
               <span className="flex h-2 w-2 shrink-0 rounded-full bg-orange-500 animate-ping" />
               <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-800 break-words leading-tight">
                 SS 304 & 316 Fabrication • Est. 2004 in Rajasthan
@@ -41,7 +42,7 @@ function Hero() {
             </div>
 
             {/* Main Title - Mobile Optimized */}
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-tight text-slate-900 leading-[1.12] break-words">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.12] break-words">
               Strength You See.{" "}
               <span className="block bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Precision You Trust.
@@ -49,13 +50,13 @@ function Hero() {
             </h1>
 
             {/* Subheading */}
-            <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-slate-600">
+            <p className="mt-3.5 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-600">
               Transforming spaces with bespoke stainless steel railings, frameless glass balustrades,
               designer entrance gates, and precision industrial engineering. Built for lifetime durability and rust-free elegance.
             </p>
 
             {/* Checkmark Quality Highlights */}
-            <div className="mt-5 sm:mt-6 flex flex-wrap gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-700 font-semibold">
+            <div className="mt-4 sm:mt-5 flex flex-wrap gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-700 font-semibold">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600 shrink-0">
                   <FiCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 stroke-[3]" />
@@ -77,10 +78,10 @@ function Hero() {
             </div>
 
             {/* CTAs - Mobile Optimized 2-tier layout */}
-            <div className="mt-7 sm:mt-9 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+            <div className="mt-6 sm:mt-8 flex flex-col gap-2.5 sm:flex-row sm:items-center">
               <a
                 href="#calculator"
-                className="group flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3.5 sm:py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:from-orange-600 hover:to-orange-700 active:scale-[0.98]"
+                className="group animate-shimmer flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3.5 sm:py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:from-orange-600 hover:to-orange-700 active:scale-[0.98]"
               >
                 <FaCalculator className="h-4.5 w-4.5 text-orange-100 transition-transform group-hover:rotate-12 shrink-0" />
                 <span>Calculate Cost Instantly</span>
@@ -108,29 +109,36 @@ function Hero() {
               </div>
             </div>
 
-            {/* Performance Metric Counters - 2-cols on mobile */}
-            <div className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 border-t border-slate-200 pt-6 sm:pt-8 w-full">
-              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
-                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">20+</p>
+            {/* Performance Metric Counters with animated count-up */}
+            <div className="mt-8 sm:mt-10 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 border-t border-slate-200 pt-5 sm:pt-6 w-full">
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm transition hover:shadow-md hover:-translate-y-0.5">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
+                  <AnimatedCounter end={20} suffix="+" />
+                </p>
                 <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600 break-words leading-tight">Years Experience</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Est. 2004 in Jodhpur</p>
               </div>
 
-              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
-                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">500+</p>
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm transition hover:shadow-md hover:-translate-y-0.5">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600">
+                  <AnimatedCounter end={500} suffix="+" />
+                </p>
                 <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700 break-words leading-tight">Projects Delivered</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Villas & Complexes</p>
               </div>
 
-              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
-                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">100%</p>
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm transition hover:shadow-md hover:-translate-y-0.5">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
+                  <AnimatedCounter end={100} suffix="%" />
+                </p>
                 <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600 break-words leading-tight">Quality Tested</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Certified 304/316</p>
               </div>
 
-              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-slate-200/90 bg-white/95 p-3 sm:p-4 shadow-sm transition hover:shadow-md hover:-translate-y-0.5">
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-600 flex items-center gap-1">
-                  4.9 <FaStar className="h-5 w-5 text-amber-500 inline -mt-1" />
+                  <AnimatedCounter end={4.9} decimals={1} />
+                  <FaStar className="h-5 w-5 text-amber-500 inline -mt-1" />
                 </p>
                 <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700 break-words leading-tight">Client Rating</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 break-words">Verified Reviews</p>
@@ -140,7 +148,7 @@ function Hero() {
           </div>
 
           {/* Right Column: Architectural Quality Snapshot Card (Hidden on small mobile, visible on lg) */}
-          <div className="hidden lg:col-span-5 xl:col-span-4 lg:block">
+          <div className="hidden lg:col-span-5 xl:col-span-4 lg:block reveal-scale" data-aos="zoom-in" data-aos-delay="250">
             <div className="relative rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-xl backdrop-blur-md">
 
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">

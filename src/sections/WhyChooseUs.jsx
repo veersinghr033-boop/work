@@ -2,16 +2,16 @@ import { comparisons } from "../data/whyChooseUs";
 
 function WhyChooseUs() {
   return (
-    <section id="why-us" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="why-us" className="relative bg-white py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end reveal">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <span>🛡️ The Ramdev Advantage</span>
             </div>
-            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
               Why Homeowners & <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Architects Trust Us.
@@ -26,7 +26,7 @@ function WhyChooseUs() {
         </div>
 
         {/* Quality Comparison - Desktop Table View (md and up) */}
-        <div className="mt-12 hidden md:block overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
+        <div className="mt-8 sm:mt-10 hidden md:block overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50 reveal-scale delay-100">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 bg-slate-50/90 px-6 py-5">
             <div>
               <h3 className="text-lg font-bold text-slate-900">Quality Comparison Matrix</h3>

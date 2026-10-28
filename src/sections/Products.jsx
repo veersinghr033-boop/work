@@ -45,16 +45,16 @@ function Products({ onSelectProductForQuote }) {
   };
 
   return (
-    <section id="products" className="relative bg-white py-20 sm:py-28 lg:py-32 overflow-hidden w-full max-w-full">
+    <section id="products" className="relative bg-white py-12 sm:py-16 lg:py-20 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end reveal" data-aos="fade-up">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <span>💎 Architectural Product Range</span>
             </div>
-            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
               Steel Crafted <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 For Every Space.
@@ -70,7 +70,7 @@ function Products({ onSelectProductForQuote }) {
         </div>
 
         {/* Search & Filter Controls */}
-        <div className="mt-10 sm:mt-12 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 sm:mt-10 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between reveal delay-100" data-aos="fade-up" data-aos-delay="100">
 
           {/* Categories */}
           <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
@@ -123,7 +123,7 @@ function Products({ onSelectProductForQuote }) {
         </div>
 
         {/* Product Grid */}
-        <div className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal delay-200">
           {filteredProducts.map((product) => (
             <article
               key={product.id}

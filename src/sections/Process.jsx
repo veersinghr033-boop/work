@@ -2,16 +2,16 @@ import { steps } from "../data/process";
 
 function Process() {
   return (
-    <section id="process" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="process" className="relative bg-slate-50 py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end reveal">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <span>🔄 Step-By-Step Workflow</span>
             </div>
-            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
               From Concept <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 To Flawless Installation.
@@ -26,7 +26,7 @@ function Process() {
         </div>
 
         {/* Process Timeline */}
-        <div className="relative mt-14 sm:mt-18">
+        <div className="relative mt-10 sm:mt-12 reveal delay-100">
           {/* Desktop Connecting Line */}
           <div className="absolute left-[8%] right-[8%] top-7 hidden h-0.5 bg-gradient-to-r from-orange-300 via-orange-500 to-orange-300 lg:block" />
 

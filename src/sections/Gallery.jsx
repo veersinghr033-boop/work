@@ -72,7 +72,7 @@ function Gallery() {
   };
 
   return (
-    <section id="gallery" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="gallery" className="relative bg-slate-50 py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -81,7 +81,7 @@ function Gallery() {
             <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
               <span>📸 Visual Showcase</span>
             </div>
-            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
               Fabrication <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Design Gallery.
@@ -96,7 +96,7 @@ function Gallery() {
         </div>
 
         {/* Filters */}
-        <div className="mt-10 sm:mt-12 flex gap-2 overflow-x-auto pb-2 sm:pb-3 no-scrollbar w-full max-w-full">
+        <div className="mt-7 sm:mt-9 flex gap-2 overflow-x-auto pb-2 sm:pb-3 no-scrollbar w-full max-w-full">
           {categories.map((category) => {
             const active = activeCategory === category;
             return (

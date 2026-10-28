@@ -4,11 +4,11 @@ function Footer() {
   };
 
   return (
-    <footer className="relative bg-slate-950 text-slate-400 border-t border-slate-800/80 pt-16 pb-12 overflow-hidden w-full max-w-full">
+    <footer className="relative bg-slate-950 text-slate-400 border-t border-slate-800/80 pt-12 pb-8 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 w-full">
 
         {/* Main Footer Grid */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 pb-12 border-b border-slate-800/80">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-12 pb-8 border-b border-slate-800/80">
 
           {/* Column 1: Brand & Bio (4 cols) */}
           <div className="lg:col-span-4">

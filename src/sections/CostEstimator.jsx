@@ -90,12 +90,12 @@ Call: +91 94688 15735`;
   }, [selectedType]);
 
   return (
-    <section id="calculator" className="relative bg-slate-50 py-20 sm:py-28 lg:py-32 border-y border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="calculator" className="relative bg-slate-50 py-12 sm:py-10 lg:py-18 border-y border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+        <div className="mx-auto max-w-3xl text-center reveal" data-aos="fade-up">
+          <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
             <span>⚡ Interactive Estimation Tool</span>
           </div>
           <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
@@ -104,18 +104,18 @@ Call: +91 94688 15735`;
               Cost Estimator
             </span>
           </h2>
-          <p className="mt-3.5 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
             No guesswork. Select your fabrication requirement, grade, finish, and approximate length
             to see an instant ballpark budget.
           </p>
         </div>
 
         {/* Main Estimator Card */}
-        <div className="mt-10 sm:mt-14 rounded-3xl border border-slate-200/90 bg-white p-3.5 xs:p-4.5 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/50 w-full max-w-full overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10 w-full min-w-0">
+        <div className="mt-8 sm:mt-10 rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-8 shadow-xl shadow-slate-200/50 w-full max-w-full overflow-hidden reveal-scale delay-100" data-aos="fade-up" data-aos-delay="150">
+          <div className="grid gap-6 lg:grid-cols-12 lg:gap-8 w-full min-w-0">
 
             {/* Left Options Configurator */}
-            <div className="lg:col-span-7 space-y-6 sm:space-y-7 w-full min-w-0">
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6 w-full min-w-0">
 
               {/* Step 1: Work Type */}
               <div className="w-full min-w-0">

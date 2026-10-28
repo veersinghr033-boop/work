@@ -68,17 +68,17 @@ function Contact({ prefilledProduct = "", onShowToast }) {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="contact" className="relative bg-white py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end reveal">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <FiMapPin className="h-3.5 w-3.5 text-orange-600" />
               <span>Connect With Us</span>
             </div>
-            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
               Let's Build <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Something Strong.
@@ -93,7 +93,7 @@ function Contact({ prefilledProduct = "", onShowToast }) {
         </div>
 
         {/* Contact Layout */}
-        <div className="mt-12 sm:mt-16 grid gap-8 lg:grid-cols-12 w-full min-w-0 max-w-full">
+        <div className="mt-8 sm:mt-10 grid gap-8 lg:grid-cols-12 w-full min-w-0 max-w-full reveal-scale delay-100">
 
           {/* Left Column: Direct Info Cards */}
           <div className="lg:col-span-5 space-y-4 w-full min-w-0 max-w-full">

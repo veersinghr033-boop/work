@@ -23,16 +23,16 @@ function Testimonials() {
   const current = testimonials[active];
 
   return (
-    <section id="testimonials" className="relative bg-white py-20 sm:py-28 lg:py-32 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="testimonials" className="relative bg-white py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end reveal">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <span>⭐ Real Customer Feedback</span>
             </div>
-            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
               Trusted By Homeowners, <br />
               <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">
                 Builders & Architects.
@@ -47,11 +47,11 @@ function Testimonials() {
         </div>
 
         {/* Featured Testimonial Hero Box */}
-        <div className="mt-12 sm:mt-16 overflow-hidden rounded-3xl border border-slate-200/90 bg-slate-50 shadow-xl shadow-slate-200/50">
+        <div className="mt-8 sm:mt-10 overflow-hidden rounded-3xl border border-slate-200/90 bg-slate-50 shadow-xl shadow-slate-200/50 reveal-scale delay-100">
           <div className="grid lg:grid-cols-[1.3fr_0.7fr]">
 
             {/* Left Quote Card */}
-            <div className="relative p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
+            <div className="relative p-5 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <StarRating rating={current.rating} />

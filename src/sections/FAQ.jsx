@@ -21,24 +21,24 @@ function FAQ() {
   }, [activeCategory, search]);
 
   return (
-    <section id="faq" className="relative bg-slate-50 py-24 sm:py-28 lg:py-32 border-t border-slate-200/80 overflow-hidden w-full max-w-full">
+    <section id="faq" className="relative bg-slate-50 py-12 sm:py-16 lg:py-20 border-t border-slate-200/80 overflow-hidden w-full max-w-full">
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
 
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50 px-4 py-1 text-xs font-bold uppercase tracking-wider text-orange-700 shadow-sm">
+        <div className="mx-auto max-w-3xl text-center reveal">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50 px-4 py-1 text-xs font-bold uppercase tracking-wider text-orange-700 shadow-sm animate-float">
             <span>❓ Frequently Asked Questions</span>
           </div>
-          <h2 className="text-3xl font-black text-slate-900 sm:text-5xl lg:text-6xl tracking-tight">
+          <h2 className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight">
             Have Questions? <br />
             <span className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent">We've Got Transparent Answers.</span>
           </h2>
-          <p className="mt-4 text-sm text-slate-600 sm:text-base leading-relaxed">
+          <p className="mt-3 text-sm text-slate-600 sm:text-base leading-relaxed">
             Everything you need to know about stainless steel grades, pricing, laser site measurement, and warranty.
           </p>
 
           {/* Search Bar */}
-          <div className="mt-8 relative max-w-md mx-auto">
+          <div className="mt-6 relative max-w-md mx-auto">
             <input
               type="text"
               placeholder="Search answers (e.g. rust, price, warranty, 304)..."
@@ -71,7 +71,7 @@ function FAQ() {
                 key={c}
                 onClick={() => setActiveCategory(c)}
                 className={`shrink-0 rounded-xl px-3.5 py-1.5 text-xs font-bold transition shadow-sm ${activeCategory === c
-                    ? "bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-orange-500/20"
+                    ? "bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-orange-500/20 scale-105"
                     : "bg-white border border-slate-200/90 text-slate-700 hover:text-orange-600 hover:border-orange-300"
                   }`}
               >
@@ -81,16 +81,16 @@ function FAQ() {
           </div>
         </div>
 
-        {/* FAQ Accordions */}
-        <div className="mt-12 space-y-3">
+        {/* FAQ Accordions with Smooth Height Transitions */}
+        <div className="mt-8 space-y-3 reveal delay-100">
           {filteredFaqs.map((faq) => {
             const isOpen = openId === faq.id;
             return (
               <div
                 key={faq.id}
-                className={`overflow-hidden rounded-2xl border transition duration-300 ${isOpen
+                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen
                     ? "border-orange-300 bg-orange-50/30 shadow-md ring-1 ring-orange-200/50"
-                    : "border-slate-200/90 bg-white hover:border-slate-300 shadow-sm"
+                    : "border-slate-200/90 bg-white hover:border-slate-300 shadow-sm hover:shadow"
                   }`}
               >
                 <button
@@ -99,7 +99,7 @@ function FAQ() {
                 >
                   <div className="flex items-center gap-3.5">
                     <span
-                      className={`text-xs font-mono font-bold ${isOpen ? "text-orange-600" : "text-slate-400"
+                      className={`text-xs font-mono font-bold transition-colors ${isOpen ? "text-orange-600" : "text-slate-400"
                         }`}
                     >
                       0{faq.id}
@@ -117,22 +117,27 @@ function FAQ() {
                   </span>
                 </button>
 
-                {isOpen && (
-                  <div className="border-t border-slate-100 px-5 sm:px-6 pb-5 sm:pb-6 pt-3.5">
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
-                      {faq.answer}
-                    </p>
-                    <div className="mt-3 flex items-center justify-between text-[11px] text-slate-500">
-                      <span>Category: {faq.category}</span>
-                      <a
-                        href="#contact"
-                        className="text-orange-600 hover:text-orange-700 hover:underline font-bold"
-                      >
-                        Ask more details →
-                      </a>
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="border-t border-slate-100 px-5 sm:px-6 pb-5 sm:pb-6 pt-3.5">
+                      <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
+                        {faq.answer}
+                      </p>
+                      <div className="mt-3 flex items-center justify-between text-[11px] text-slate-500">
+                        <span>Category: {faq.category}</span>
+                        <a
+                          href="#contact"
+                          className="text-orange-600 hover:text-orange-700 hover:underline font-bold"
+                        >
+                          Ask more details →
+                        </a>
+                      </div>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}
