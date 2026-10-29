@@ -25,14 +25,14 @@ function Process() {
           </p>
         </div>
 
-        {/* Process Timeline */}
-        <div className="relative mt-10 sm:mt-12 reveal delay-100">
+        {/* Process Timeline — process-grid triggers child process-step stagger */}
+        <div className="relative mt-10 sm:mt-12 process-grid reveal delay-100">
           {/* Desktop Connecting Line */}
           <div className="absolute left-[8%] right-[8%] top-7 hidden h-0.5 bg-gradient-to-r from-orange-300 via-orange-500 to-orange-300 lg:block" />
 
           <div className="grid gap-7 lg:grid-cols-5 lg:gap-4">
             {steps.map((step, index) => (
-              <div key={step.number} className="group relative flex flex-col justify-between">
+              <div key={step.number} className="group process-step relative flex flex-col justify-between">
 
                 {/* Mobile connecting vertical line */}
                 {index !== steps.length - 1 && (
@@ -41,7 +41,7 @@ function Process() {
 
                 {/* Step Top Header */}
                 <div>
-                  <div className="relative z-10 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl border-2 border-orange-500 bg-white text-base sm:text-lg font-black text-orange-600 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white">
+                  <div className="relative z-10 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl border-2 border-orange-500 bg-white text-base sm:text-lg font-black text-orange-600 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white touch-ripple">
                     {step.number}
                   </div>
 

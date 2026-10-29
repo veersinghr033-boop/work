@@ -8,9 +8,9 @@ function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Top Heading */}
-        <div className="mb-8 sm:mb-10 grid gap-6 lg:grid-cols-[1fr_1.8fr] lg:items-end reveal" data-aos="fade-up">
+        <div className="mb-8 sm:mb-10 grid gap-6 lg:grid-cols-[1fr_1.8fr] lg:items-end reveal">
           <div>
-            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
+            <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm">
               <FiAward className="h-3.5 w-3.5 text-orange-600" />
               <span>About Ramdev Steel Industries</span>
             </div>
@@ -33,7 +33,7 @@ function About() {
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
 
           {/* Left Column: Visual Showcase */}
-          <div className="relative min-h-[380px] sm:min-h-[480px] overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50 reveal-scale" data-aos="fade-right" data-aos-delay="100">
+          <div className="relative min-h-[380px] sm:min-h-[480px] overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50 reveal-scale">
             <img
               src={aboutImage}
               alt="Steel fabrication craftsman at work"
@@ -67,7 +67,7 @@ function About() {
           </div>
 
           {/* Right Column: Values & Core Pillars */}
-          <div className="flex flex-col justify-center space-y-6 reveal delay-100" data-aos="fade-left" data-aos-delay="200">
+          <div className="flex flex-col justify-center space-y-6 reveal delay-100">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-orange-700">
                 Precision Standards
@@ -82,9 +82,9 @@ function About() {
               </p>
             </div>
 
-            {/* 4 Feature Cards */}
-            <div className="grid gap-3.5 sm:grid-cols-2 pt-1">
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
+            {/* 4 Feature Cards — feature-grid triggers staggered reveal */}
+            <div className="grid gap-3.5 sm:grid-cols-2 pt-1 feature-grid reveal delay-200">
+              <div className="feature-card rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-orange-400 hover:shadow-md hover:-translate-y-0.5 touch-ripple">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
                   <FiCheck className="h-5 w-5 stroke-[2.5]" />
                 </div>
@@ -94,7 +94,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
+              <div className="feature-card rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-orange-400 hover:shadow-md hover:-translate-y-0.5 touch-ripple">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
                   <FiCompass className="h-5 w-5" />
                 </div>
@@ -104,7 +104,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
+              <div className="feature-card rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-orange-400 hover:shadow-md hover:-translate-y-0.5 touch-ripple">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
                   <FiZap className="h-5 w-5" />
                 </div>
@@ -114,7 +114,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-orange-400 hover:shadow-md">
+              <div className="feature-card rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-orange-400 hover:shadow-md hover:-translate-y-0.5 touch-ripple">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-100 text-orange-600 font-bold text-sm">
                   <FiShield className="h-5 w-5" />
                 </div>

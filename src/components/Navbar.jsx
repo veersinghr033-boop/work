@@ -82,7 +82,7 @@ function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full transition-all duration-300">
+    <header className="fixed top-0 left-0 z-50 w-full transition-all duration-300 navbar-enter">
       {/* Top Utility Ribbon (Desktop only) */}
       <div
         className={`hidden lg:block border-b border-slate-200/90 bg-slate-50/95 text-xs text-slate-600 transition-all duration-300 ${scrolled ? "h-0 overflow-hidden py-0 opacity-0" : "py-1.5 opacity-100"
@@ -92,7 +92,7 @@ function Navbar() {
           <div className="flex items-center gap-3 xl:gap-5 whitespace-nowrap text-[11px] xl:text-xs">
             <span className="flex items-center gap-1.5 text-slate-700 font-medium">
               <FiMapPin className="h-3.5 w-3.5 text-orange-600 shrink-0" />
-              Jodhpur, Rajasthan • Precision Stainless Steel Fabrication
+              Hadecha, Shivnagar, Rajasthan • Precision Stainless Steel Fabrication
             </span>
             <span className="h-3 w-px bg-slate-300" />
             <span className="flex items-center gap-1.5 text-slate-600">
@@ -235,18 +235,18 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer (Native App style Slide-over from Right) */}
+      {/* Mobile Drawer */}
       {isOpen && (
         <div
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
-          className="fixed inset-0 z-50 flex justify-end bg-slate-950/60 backdrop-blur-sm lg:hidden transition-opacity"
+          className="fixed inset-0 z-50 flex justify-end bg-slate-950/60 backdrop-blur-sm lg:hidden backdrop-enter"
           onClick={(e) => {
             if (e.target === e.currentTarget) setIsOpen(false);
           }}
         >
-          <div className="flex h-full w-[85%] max-w-[340px] flex-col justify-between overflow-y-auto bg-white p-5 shadow-2xl pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] animate-in slide-in-from-right duration-300">
+          <div className="flex h-[calc(100vh-6rem)] w-[85%] max-w-[340px] flex-col rounded-l-2xl justify-between overflow-y-auto bg-white p-5 shadow-2xl pb-[calc(2rem+env(safe-area-inset-bottom,0px))] drawer-enter">
             <div>
               {/* Drawer Header */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-3">
@@ -262,16 +262,16 @@ function Navbar() {
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 active:scale-95"
+                  className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 active:scale-95 transition"
                   aria-label="Close menu"
                 >
                   <FiX className="h-4 w-4" />
                 </button>
               </div>
 
-              {/* Navigation Items with Touch Targets */}
+              {/* Navigation Items — staggered slide-in */}
               <nav className="flex flex-col gap-1 py-1">
-                {navItems.map((item) => {
+                {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.substring(1);
                   const Icon = item.icon;
                   return (
@@ -279,7 +279,7 @@ function Navbar() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold transition active:scale-[0.99] min-h-[44px] ${isActive
+                      className={`nav-item-${index + 1} touch-ripple flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold transition active:scale-[0.98] min-h-[44px] ${isActive
                         ? "bg-orange-50 text-orange-600 border border-orange-200/90 shadow-sm"
                         : item.highlight
                           ? "bg-gradient-to-r from-amber-50 to-orange-50 text-amber-900 border border-amber-200/80"
@@ -298,12 +298,12 @@ function Navbar() {
             </div>
 
             {/* Drawer Footer Actions */}
-            <div className="mt-6 border-t border-slate-100 pt-4 space-y-3">
+            <div className="mt-6 border-t border-slate-100 pt-3 space-y-3">
               <div className="grid grid-cols-2 gap-2">
                 <a
                   href="#calculator"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-1.5 rounded-xl border border-orange-300 bg-orange-50 py-3 text-xs font-bold text-orange-700 shadow-sm active:scale-95 text-center min-h-[44px]"
+                  className="touch-ripple flex items-center justify-center gap-1.5 rounded-xl border border-orange-300 bg-orange-50 py-3 text-xs font-bold text-orange-700 shadow-sm active:scale-95 text-center min-h-[44px] transition"
                 >
                   <span>Estimate</span>
                   <FiZap className="h-3.5 w-3.5 text-orange-600" />
@@ -311,7 +311,7 @@ function Navbar() {
                 <a
                   href="#contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-1.5 rounded-xl bg-orange-600 py-3 text-xs font-bold text-white shadow-md shadow-orange-500/20 active:scale-95 text-center min-h-[44px]"
+                  className="touch-ripple flex items-center justify-center gap-1.5 rounded-xl bg-orange-600 py-3 text-xs font-bold text-white shadow-md shadow-orange-500/20 active:scale-95 text-center min-h-[44px] animate-shimmer transition"
                 >
                   Book Visit
                 </a>

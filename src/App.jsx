@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
 import FloatingActions from "./components/FloatingActions";
 import Toast from "./components/Toast";
@@ -34,40 +32,50 @@ function App() {
   };
 
   useEffect(() => {
-    AOS.init({
-      duration: 750,
-      easing: "ease-out-cubic",
-      once: true,
-      offset: 50,
-      disable: "mobile" ? false : false,
-    });
-
-    const observer = new IntersectionObserver(
+    // Primary observer — generous threshold so elements reveal nicely
+    const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
+            // Don't unobserve — allows re-entry if needed
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.07, rootMargin: "0px 0px -36px 0px" }
     );
 
-    const observeElements = () => {
-      const elements = document.querySelectorAll(".reveal, .reveal-scale");
-      elements.forEach((el) => observer.observe(el));
-      AOS.refresh();
+    // Stagger-grid observer — adds is-visible to the GRID wrapper which
+    // triggers the nth-child CSS delays on inner .stagger-card elements
+    const staggerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            staggerObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06, rootMargin: "0px 0px -20px 0px" }
+    );
+
+    const observeAll = () => {
+      document
+        .querySelectorAll(".reveal, .reveal-scale, .reveal-left, .reveal-right, .bar-grow")
+        .forEach((el) => revealObserver.observe(el));
+
+      document
+        .querySelectorAll(".stagger-grid, .process-grid, .feature-grid")
+        .forEach((el) => staggerObserver.observe(el));
     };
 
-    observeElements();
-    const timeout = setTimeout(observeElements, 500);
+    observeAll();
+    const t = setTimeout(observeAll, 400);
 
     return () => {
-      clearTimeout(timeout);
-      observer.disconnect();
+      clearTimeout(t);
+      revealObserver.disconnect();
+      staggerObserver.disconnect();
     };
   }, []);
 

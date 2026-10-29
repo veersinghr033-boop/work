@@ -94,7 +94,7 @@ Call: +91 94688 15735`;
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center reveal" data-aos="fade-up">
+        <div className="mx-auto max-w-3xl text-center reveal">
           <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
             <span>⚡ Interactive Estimation Tool</span>
           </div>
@@ -111,7 +111,7 @@ Call: +91 94688 15735`;
         </div>
 
         {/* Main Estimator Card */}
-        <div className="mt-8 sm:mt-10 rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-8 shadow-xl shadow-slate-200/50 w-full max-w-full overflow-hidden reveal-scale delay-100" data-aos="fade-up" data-aos-delay="150">
+        <div className="mt-8 sm:mt-10 rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-8 shadow-xl shadow-slate-200/50 w-full max-w-full overflow-hidden reveal-scale delay-100">
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-8 w-full min-w-0">
 
             {/* Left Options Configurator */}

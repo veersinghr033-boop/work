@@ -30,7 +30,7 @@ function Contact({ prefilledProduct = "", onShowToast }) {
     service: prefilledProduct || "SS Balcony & Stair Railings",
     grade: "SS 304 (Recommended Standard)",
     approxSize: "",
-    location: "Jodhpur, Rajasthan",
+    location: "Hadecha, Shivnagar, Rajasthan",
     message: "",
   });
 
@@ -68,7 +68,7 @@ function Contact({ prefilledProduct = "", onShowToast }) {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
+    <section id="contact" className="relative bg-white py-12 sm:py-16 lg:py-20 pb-24 sm:pb-16 lg:pb-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -181,10 +181,10 @@ function Contact({ prefilledProduct = "", onShowToast }) {
                   <span className="text-[10px] uppercase font-bold text-slate-400 block">Workshop & Office</span>
                   <p className="text-xs sm:text-sm font-bold text-slate-900">Ramdev Steel Industries</p>
                   <p className="mt-0.5 text-xs text-slate-500 break-words">
-                    Industrial Area, Jodhpur, Rajasthan - 342001
+                    Industrial Area, Hadecha, Shivnagar, Rajasthan - 343041
                   </p>
                   <a
-                    href="https://maps.google.com/?q=Jodhpur+Rajasthan"
+                    href="https://maps.google.com/?q=Hadecha+Shivnagar+Rajasthan"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-orange-600 hover:underline"
@@ -438,6 +438,82 @@ function Contact({ prefilledProduct = "", onShowToast }) {
             </div>
           </div>
 
+        </div>
+
+        {/* ── Google Map ── */}
+        <div className="mt-8 sm:mt-12">
+          {/* Map Header */}
+          <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-orange-700">
+                📍 Find Our Workshop
+              </span>
+              <h3 className="mt-0.5 text-lg sm:text-2xl font-black text-slate-900 leading-tight">
+                Ramdev Steel Industries — Hadecha, Shivnagar, Rajasthan
+              </h3>
+              <p className="mt-0.5 text-xs text-slate-500">
+                QMXQ+6PW, Hadecha, Shivnagar, Rajasthan 343041 · Mon–Sat 9 AM – 8 PM
+              </p>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=QMXQ%2B6PW+Hadecha+Shivnagar+Rajasthan+343041"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-orange-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-orange-500/20 transition hover:bg-orange-700 hover:-translate-y-0.5 active:scale-95 animate-shimmer"
+            >
+              <FiMapPin className="h-3.5 w-3.5" />
+              Get Directions
+            </a>
+          </div>
+
+          {/* Embedded Map */}
+          <div className="relative overflow-hidden rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/50 card-hover">
+            {/* Map label badge */}
+            <div className="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-full border border-orange-200/80 bg-white/95 backdrop-blur-sm px-3 py-1.5 shadow-md">
+              <span className="h-2 w-2 rounded-full bg-orange-500 animate-ping shrink-0" />
+              <span className="text-[11px] font-bold text-slate-800">Ramdev Steel Industries</span>
+            </div>
+
+            <iframe
+              title="Ramdev Steel Industries Location Map"
+              src="https://maps.google.com/maps?q=24.797244,71.689056&hl=en&z=16&output=embed"
+              width="100%"
+              height="420"
+              style={{ border: 0, display: "block" }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-[280px] sm:h-[350px] lg:h-[420px]"
+            />
+
+            {/* Bottom action strip */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 border-t border-slate-200/90 bg-white/95 backdrop-blur-sm px-4 sm:px-5 py-3">
+              <div className="flex items-center gap-2 text-xs text-slate-600">
+                <FiMapPin className="h-3.5 w-3.5 text-orange-600 shrink-0" />
+                <span className="font-semibold text-[11px] sm:text-xs">QMXQ+6PW, Hadecha, Shivnagar, Rajasthan 343041</span>
+              </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=QMXQ%2B6PW+Hadecha+Shivnagar+Rajasthan+343041"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex flex-1 sm:flex-none items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 sm:py-1.5 text-[11px] font-bold text-slate-700 hover:border-orange-400 hover:text-orange-600 transition"
+                >
+                  Open in Maps
+                  <FiArrowRight className="h-3 w-3" />
+                </a>
+                <a
+                  href="https://wa.me/918949708489?text=Hello%20Ramdev%20Steel!%20I%20want%20to%20visit%20your%20workshop%20at%20QMXQ%2B6PW%2C%20Hadecha%2C%20Shivnagar%2C%20Rajasthan%20343041.%20Please%20share%20the%20exact%20location."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex flex-1 sm:flex-none items-center justify-center gap-1.5 rounded-lg bg-emerald-500 px-3 py-2 sm:py-1.5 text-[11px] font-bold text-white hover:bg-emerald-600 transition shadow-sm"
+                >
+                  <FaWhatsapp className="h-3.5 w-3.5" />
+                  Ask for Directions
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

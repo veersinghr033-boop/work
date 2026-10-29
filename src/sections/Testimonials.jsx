@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { testimonials } from "../data/testimonials";
 
 function StarRating({ rating }) {
@@ -20,7 +20,13 @@ function StarRating({ rating }) {
 
 function Testimonials() {
   const [active, setActive] = useState(0);
+  const [animKey, setAnimKey] = useState(0);
   const current = testimonials[active];
+
+  const switchTo = (idx) => {
+    setActive(idx);
+    setAnimKey((k) => k + 1); // force re-mount animation
+  };
 
   return (
     <section id="testimonials" className="relative bg-white py-12 sm:py-16 lg:py-20 border-t border-slate-200/90 overflow-hidden w-full max-w-full">
@@ -50,8 +56,8 @@ function Testimonials() {
         <div className="mt-8 sm:mt-10 overflow-hidden rounded-3xl border border-slate-200/90 bg-slate-50 shadow-xl shadow-slate-200/50 reveal-scale delay-100">
           <div className="grid lg:grid-cols-[1.3fr_0.7fr]">
 
-            {/* Left Quote Card */}
-            <div className="relative p-5 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
+            {/* Left Quote Card — re-animates on tab switch */}
+            <div key={animKey} className="relative p-5 sm:p-8 lg:p-10 flex flex-col justify-between bg-white testimonial-enter">
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <StarRating rating={current.rating} />
@@ -81,8 +87,8 @@ function Testimonials() {
 
                 <div className="flex items-center gap-2 self-end sm:self-auto">
                   <button
-                    onClick={() => setActive((active - 1 + testimonials.length) % testimonials.length)}
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-300 transition active:scale-95 shadow-sm"
+                    onClick={() => switchTo((active - 1 + testimonials.length) % testimonials.length)}
+                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-300 transition active:scale-95 shadow-sm touch-ripple"
                     aria-label="Previous testimonial"
                   >
                     ←
@@ -91,8 +97,8 @@ function Testimonials() {
                     {active + 1}/{testimonials.length}
                   </span>
                   <button
-                    onClick={() => setActive((active + 1) % testimonials.length)}
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-300 transition active:scale-95 shadow-sm"
+                    onClick={() => switchTo((active + 1) % testimonials.length)}
+                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-300 transition active:scale-95 shadow-sm touch-ripple"
                     aria-label="Next testimonial"
                   >
                     →
@@ -135,8 +141,8 @@ function Testimonials() {
           {testimonials.map((t, idx) => (
             <button
               key={t.id}
-              onClick={() => setActive(idx)}
-              className={`rounded-2xl border p-3.5 sm:p-4 text-left transition shadow-sm ${active === idx
+              onClick={() => switchTo(idx)}
+              className={`touch-ripple rounded-2xl border p-3.5 sm:p-4 text-left transition shadow-sm active:scale-[0.97] ${active === idx
                   ? "border-orange-500 bg-orange-50/90 shadow-md ring-1 ring-orange-400/30"
                   : "border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/70"
                 }`}

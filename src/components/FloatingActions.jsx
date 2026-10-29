@@ -8,13 +8,8 @@ function FloatingActions({ onCopyPhone }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 350) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
+      setShowScrollTop(window.scrollY > 350);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -68,7 +63,7 @@ function FloatingActions({ onCopyPhone }) {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500 hover:bg-orange-600 hover:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500 hover:bg-orange-600 hover:text-white scroll-top-enter"
             aria-label="Scroll to top"
             title="Scroll to top"
           >
@@ -83,7 +78,7 @@ function FloatingActions({ onCopyPhone }) {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-3.5 z-40 flex lg:hidden h-10 w-10 items-center justify-center rounded-full border border-slate-200/90 bg-white/95 text-slate-700 shadow-xl backdrop-blur-md transition-all active:scale-95"
+          className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-3.5 z-40 flex lg:hidden h-10 w-10 items-center justify-center rounded-full border border-slate-200/90 bg-white/95 text-slate-700 shadow-xl backdrop-blur-md transition-all active:scale-95 scroll-top-enter"
           aria-label="Scroll to top"
         >
           <FiArrowUp className="h-4.5 w-4.5" />
@@ -91,59 +86,59 @@ function FloatingActions({ onCopyPhone }) {
       )}
 
       {/* =========================================================================
-          MOBILE DEDICATED STICKY ACTION DOCK (Visible on mobile/tablet, hidden on lg)
+          MOBILE DEDICATED STICKY ACTION DOCK — slide up on mount, icon pop-in
       ========================================================================= */}
       <aside
         aria-label="Mobile quick actions"
-        className="fixed bottom-0 left-0 right-0 z-40 flex lg:hidden border-t border-slate-200/90 bg-white/95 backdrop-blur-lg shadow-[0_-4px_20px_rgba(0,0,0,0.08)] pb-[env(safe-area-inset-bottom,0px)]"
+        className="fixed bottom-0 left-0 right-0 z-40 flex lg:hidden border-t border-slate-200/90 bg-white/95 backdrop-blur-lg shadow-[0_-4px_20px_rgba(0,0,0,0.08)] pb-[env(safe-area-inset-bottom,0px)] mobile-dock-enter"
       >
         <div className="grid grid-cols-4 w-full px-1.5 py-1.5 items-center text-center">
 
-          {/* Action 1: Call Specialist */}
+          {/* Action 1: Call */}
           <a
             href="tel:+918949708489"
-            className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 hover:text-orange-600 transition active:scale-95"
+            className="dock-icon-1 touch-ripple flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 active:bg-orange-50 active:text-orange-600 transition"
             aria-label="Call Now"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-orange-50 text-orange-600 border border-orange-200/80 mb-0.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-orange-50 text-orange-600 border border-orange-200/80 mb-0.5 transition-transform active:scale-90">
               <FiPhoneCall className="h-4 w-4" />
             </div>
             <span className="text-[10px] font-bold tracking-tight">Call Now</span>
           </a>
 
-          {/* Action 2: WhatsApp Chat */}
+          {/* Action 2: WhatsApp — with pulse ring */}
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 hover:text-emerald-600 transition active:scale-95"
+            className="dock-icon-2 touch-ripple flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 active:bg-emerald-50 transition"
             aria-label="WhatsApp"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500 text-white shadow-sm shadow-emerald-500/25 mb-0.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500 text-white shadow-sm shadow-emerald-500/25 mb-0.5 dock-whatsapp-pulse transition-transform active:scale-90">
               <FaWhatsapp className="h-4.5 w-4.5" />
             </div>
             <span className="text-[10px] font-bold tracking-tight text-emerald-700">WhatsApp</span>
           </a>
 
-          {/* Action 3: Cost Calculator */}
+          {/* Action 3: Estimator */}
           <a
             href="#calculator"
-            className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 hover:text-orange-600 transition active:scale-95"
+            className="dock-icon-3 touch-ripple flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 active:bg-amber-50 transition"
             aria-label="Cost Estimator"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-50 text-amber-700 border border-amber-200/80 mb-0.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-50 text-amber-700 border border-amber-200/80 mb-0.5 transition-transform active:scale-90">
               <FaCalculator className="h-4 w-4" />
             </div>
             <span className="text-[10px] font-bold tracking-tight">Estimator</span>
           </a>
 
-          {/* Action 4: Book Site Visit */}
+          {/* Action 4: Site Visit */}
           <a
             href="#contact"
-            className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 hover:text-orange-600 transition active:scale-95"
+            className="dock-icon-4 touch-ripple flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-700 active:bg-orange-50 transition"
             aria-label="Book Free Site Visit"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-orange-600 text-white shadow-sm shadow-orange-500/25 mb-0.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-orange-600 text-white shadow-sm shadow-orange-500/25 mb-0.5 animate-shimmer transition-transform active:scale-90">
               <FiMapPin className="h-4 w-4" />
             </div>
             <span className="text-[10px] font-bold tracking-tight text-orange-700">Site Visit</span>
@@ -156,4 +151,3 @@ function FloatingActions({ onCopyPhone }) {
 }
 
 export default FloatingActions;
-

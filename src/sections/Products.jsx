@@ -49,7 +49,7 @@ function Products({ onSelectProductForQuote }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end reveal" data-aos="fade-up">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end reveal">
           <div>
             <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-orange-700 shadow-sm animate-float">
               <span>💎 Architectural Product Range</span>
@@ -70,7 +70,7 @@ function Products({ onSelectProductForQuote }) {
         </div>
 
         {/* Search & Filter Controls */}
-        <div className="mt-8 sm:mt-10 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between reveal delay-100" data-aos="fade-up" data-aos-delay="100">
+        <div className="mt-8 sm:mt-10 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between reveal delay-100">
 
           {/* Categories */}
           <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
@@ -122,12 +122,12 @@ function Products({ onSelectProductForQuote }) {
 
         </div>
 
-        {/* Product Grid */}
-        <div className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal delay-200">
+        {/* Product Grid — stagger-grid triggers child stagger-card animations */}
+        <div className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 stagger-grid">
           {filteredProducts.map((product) => (
             <article
               key={product.id}
-              className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-white transition duration-500 hover:-translate-y-1.5 hover:border-orange-400 hover:shadow-xl shadow-sm"
+              className="group stagger-card flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-white transition duration-500 hover:-translate-y-2 hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/10 shadow-sm"
             >
               {/* Product Image */}
               <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-100">

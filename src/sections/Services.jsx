@@ -32,12 +32,12 @@ function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 reveal delay-100">
+        {/* Services Grid — stagger-grid for sequenced card entrance */}
+        <div className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-grid">
           {services.map((service) => (
             <article
               key={service.id}
-              className="group relative min-h-[420px] sm:min-h-[460px] overflow-hidden rounded-3xl border border-slate-800 bg-slate-950 shadow-md transition duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-orange-500/60"
+              className="group stagger-card relative min-h-[420px] sm:min-h-[460px] overflow-hidden rounded-3xl border border-slate-800 bg-slate-950 shadow-md transition duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500/60"
             >
               {/* Background Image */}
               <img
