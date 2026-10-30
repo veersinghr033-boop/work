@@ -18,6 +18,8 @@ import {
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
+import logo from "../assets/logo.jpg";
+
 const navItems = [
   { name: "Home", href: "#home", icon: FiHome },
   { name: "Cost Estimator", shortName: "Estimator", href: "#calculator", icon: FiZap, highlight: true },
@@ -128,8 +130,10 @@ function Navbar() {
 
           {/* Brand Logo */}
           <a href="#home" className="group flex items-center gap-2 sm:gap-2.5 xl:gap-3 shrink-0">
-            <div className="flex h-9 w-9 sm:h-10 sm:w-10 xl:h-11 xl:w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 via-orange-600 to-amber-600 shadow-md shadow-orange-500/20 transition-transform duration-300 group-hover:scale-105 shrink-0">
-              <span className="text-sm sm:text-base xl:text-xl font-black tracking-wider text-white">RS</span>
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-9 items-center justify-center shrink-0">
+                <img src={logo} alt="Ramdev Steel Industries" className="h-full w-auto object-contain" />
+              </div>
             </div>
 
             <div className="flex flex-col shrink-0">
@@ -251,12 +255,8 @@ function Navbar() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-600 text-white font-black text-xs">
-                    RS
-                  </div>
-                  <div>
-                    <span className="block text-xs font-black text-slate-900 tracking-wider">RAMDEV STEEL</span>
-                    <span className="block text-[9px] uppercase tracking-widest text-slate-400 font-bold">Menu Navigation</span>
+                  <div className="flex h-9 items-center justify-center shrink-0">
+                    <img src={logo} alt="Ramdev Steel Industries" className="h-full w-auto object-contain" />
                   </div>
                 </div>
 

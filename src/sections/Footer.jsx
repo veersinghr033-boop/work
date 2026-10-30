@@ -1,3 +1,5 @@
+import logo from "../assets/logo.jpg";
+
 function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -13,8 +15,10 @@ function Footer() {
           {/* Column 1: Brand & Bio (4 cols) */}
           <div className="lg:col-span-4">
             <a href="#home" className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 via-amber-600 to-orange-700 shadow-md shadow-orange-600/30">
-                <span className="text-xl font-black text-white">RS</span>
+              <div className="flex items-center gap-2.5 ">
+                <div className="flex h-9 items-center justify-center shrink-0  ">
+                  <img src={logo} alt="Ramdev Steel Industries" className="h-full w-auto object-contain rounded-xl" />
+                </div>
               </div>
               <div>
                 <h3 className="text-lg font-extrabold tracking-wider text-white">
